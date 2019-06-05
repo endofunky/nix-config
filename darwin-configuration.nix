@@ -25,15 +25,26 @@ in
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
-  system.defaults.NSGlobalDomain.InitialKeyRepeat = 20;
-  system.defaults.NSGlobalDomain.KeyRepeat = 1;
-  system.defaults.dock.autohide = true;
-  system.defaults.dock.showhidden = true;
-  system.defaults.dock.mru-spaces = false;
-  system.defaults.finder.AppleShowAllExtensions = true;
-  system.defaults.finder.QuitMenuItem = true;
-  system.keyboard.enableKeyMapping = true;
-  system.keyboard.remapCapsLockToControl = true;
+  system.defaults.NSGlobalDomain = {
+    InitialKeyRepeat = 20;
+    KeyRepeat = 1;
+  };
+
+  system.defaults.dock = {
+    autohide = true;
+    showhidden = true;
+    mru-spaces = false;
+  };
+
+  system.defaults.finder = {
+    AppleShowAllExtensions = true;
+    QuitMenuItem = true;
+  };
+
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToControl = true;
+  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
