@@ -7,6 +7,7 @@ in
   emacsHEAD
   pkgs.aria2
   pkgs.curl
+  pkgs.fish
   pkgs.git
   pkgs.gnupg
   pkgs.pythonPackages.editorconfig

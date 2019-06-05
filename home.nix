@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  sharedPackages = import ./shared-packages.nix (pkgs);
+in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -14,16 +17,12 @@
     ];
   };
 
-  home.packages = with pkgs; [
-    pkgs.aria2
-    pkgs.gnupg
+  home.packages = sharedPackages ++ [
     pkgs.google-chrome
     pkgs.hsetroot
     pkgs.i3lock
     pkgs.mplayer
-    pkgs.ripgrep
     pkgs.sbcl
-    pkgs.screen
     pkgs.scrot
     pkgs.spotify
     pkgs.traceroute
