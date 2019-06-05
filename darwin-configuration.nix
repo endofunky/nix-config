@@ -1,14 +1,14 @@
 { config, pkgs, ... }:
 
 let
-  shared = import ./shared-packages.nix (pkgs);
+  sharedPackages = import ./shared-packages.nix (pkgs);
 in
 {
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = shared;
+  environment.systemPackages = sharedPackages;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
