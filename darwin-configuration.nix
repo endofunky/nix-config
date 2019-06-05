@@ -23,6 +23,7 @@ in
     autohide = true;
     showhidden = true;
     mru-spaces = false;
+    autohide-time-modifier = "0.5";
   };
 
   system.defaults.finder = {
