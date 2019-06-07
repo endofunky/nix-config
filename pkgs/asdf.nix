@@ -13,16 +13,16 @@ stdenv.mkDerivation rec {
   buildInputs = [ gnutar ];
 
   installPhase = ''
-    PATH=~/.asdf/shims:$PATH
+    mkdir -p $out/share/asdf
+    ${pkgs.gnutar}/bin/tar xf $src --strip 1 -C $out/share/asdf
 
-    mkdir -p $out/asdf
     mkdir -p $out/bin
-    ${pkgs.gnutar}/bin/tar xf $src --strip 1 -C $out/asdf
     echo "#! ${stdenv.shell}" >> "$out/bin/asdf"
-    echo "exec $out/asdf/bin/asdf \$*" >> "$out/bin/asdf"
+    echo "exec $out/share/asdf/bin/asdf \$*" >> "$out/bin/asdf"
     chmod +x $out/bin/asdf
 
-    mkdir -p $out/etc/bash_completion.d/
-    ln -s $out/asdf/completions/asdf/bash/asdf.bash $out/etc/bash_completion.d/asdf.bash
+    mkdir -p "$out/share/"{bash-completion/completions,fish/vendor_completions.d}
+    cp $out/share/asdf/completions/asdf.bash "$out/share/bash-completion/completions/"
+    cp $out/share/asdf/completions/asdf.fish "$out/share/fish/vendor_completions.d/"
   '';
 }
