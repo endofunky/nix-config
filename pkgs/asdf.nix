@@ -1,11 +1,10 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "asdf";
-  version = "0.7.2";
+  name = "asdf-0.7.2";
 
   src = fetchurl {
-    url = "https://github.com/asdf-vm/asdf/archive/v" + version + ".tar.gz";
+    url = "https://github.com/asdf-vm/asdf/archive/v0.7.2.tar.gz";
     sha256 = "1c53c1dfabfdbdee3c9b34e396655d963aeb362a8173e956233ac2689d696a34";
   };
 
