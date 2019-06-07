@@ -22,8 +22,8 @@ stdenv.mkDerivation rec {
     echo "exec $out/asdf/bin/asdf \$*" >> "$out/bin/asdf"
     chmod +x $out/bin/asdf
 
-    mkdir -p $out/share/bash-completion/completions/
-    ln -s $out/asdf/completions/asdf/bash/asdf.bash $out/share/bash-completion/asdf.bash
+    mkdir -p $out/etc/bash_completion.d/
+    ln -s $out/asdf/completions/asdf/bash/asdf.bash $out/etc/bash_completion.d/asdf.bash
   '';
 
   shellHook = ''
