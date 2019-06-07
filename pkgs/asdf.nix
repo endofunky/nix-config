@@ -25,8 +25,4 @@ stdenv.mkDerivation rec {
     mkdir -p $out/etc/bash_completion.d/
     ln -s $out/asdf/completions/asdf/bash/asdf.bash $out/etc/bash_completion.d/asdf.bash
   '';
-
-  shellHook = ''
-    export PATH="$PWD/node_modules/.bin/:$PATH"
-  '';
 }
