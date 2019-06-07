@@ -11,6 +11,8 @@ stdenv.mkDerivation rec {
 
   phases = "installPhase fixupPhase";
 
+  buildInputs = [ gnutar ];
+
   installPhase = ''
     mkdir -p $out/asdf
     mkdir -p $out/bin
