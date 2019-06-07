@@ -2,9 +2,11 @@
 
 let
   emacsHEAD = import ./pkgs/emacs.nix;
+  asdf = import ./pkgs/asdf.nix;
 in
 [
   emacsHEAD
+  asdf
   pkgs.aria2
   pkgs.curl
   pkgs.fish
