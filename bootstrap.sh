@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ ! -d "/nix" ]; then
+  curl https://nixos.org/nix/install | sh
+  . $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   echo "Bootstrapping nix-darwin ..."
   nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
