@@ -3,8 +3,9 @@
 with import <nixpkgs> {};
 
 let
+  home_directory = builtins.getEnv "HOME";
   emacsHEAD = import ./pkgs/emacs.nix;
-  asdf = import ./pkgs/asdf.nix;
+  asdfVM = import ./pkgs/asdf.nix;
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -22,19 +23,20 @@ in
 
   home.packages = with pkgs; [
     aria2
-    asdf
+    asdfVM
     emacsHEAD
     fish
+    fortune
     mplayer
     pythonPackages.editorconfig
     ripgrep
     screen
     whois
+    zsh-git-prompt
   ] ++ stdenv.lib.optional stdenv.isLinux [
     google-chrome
     hsetroot
     i3lock
-    sbcl
     scrot
     spotify
     traceroute
@@ -46,6 +48,8 @@ in
     enableBashIntegration = true;
     enableZshIntegration = true;
     enableFishIntegration = true;
+
+    stdlib = builtins.readFile ./dotfiles/direnvrc;
   };
 
   programs.gpg.enable = true;
@@ -69,6 +73,7 @@ in
 
     sessionVariables = {
       CLICOLOR = "1";
+      DIRENV_LOG_FORMAT = "";
       EDITOR = "vim";
       KEYTIMEOUT = "1";
       LC_CTYPE = "en_US.UTF-8";
@@ -82,12 +87,13 @@ in
       bashcompinit
       setopt nolist_beep
 
-      if [ -f "$HOME/.nix-profile/share/bash-completion/completions/asdf.bash" ]; then
-        . "$HOME/.nix-profile/share/bash-completion/completions/asdf.bash"
-      fi
+      source ${asdfVM}/share/asdf/completions/asdf.bash
+      source ${pkgs.zsh-git-prompt}/share/zsh-git-prompt/zshrc.sh
 
-      if test -f $HOME/.zshrc.local; then
-        source $HOME/.zshrc.local
+      PROMPT='%1~%b$(git_super_status) %# '
+
+      if test -f ${home_directory}/.zshrc.local; then
+        source ${home_directory}/.zshrc.local
       fi
     '';
 
@@ -98,29 +104,29 @@ in
       export RUBY_GC_MALLOC_LIMIT=1000000000
       export RUBY_HEAP_FREE_MIN=500000
 
-      if [ -x /usr/libexec/path_helper ]; then
-        eval `/usr/libexec/path_helper -s`
-      fi
+      export PATH="${home_directory}/bin:$PATH"
 
-      export PATH="$HOME/bin:$PATH"
-      export PATH="$HOME/.asdf/shims:$PATH"
-
-      export GOPATH=$HOME/projects/go
-      export GOBIN=$HOME/projects/go/bin
-      export PATH=$PATH:$GOBIN
+      export GOPATH=${home_directory}/projects/go
+      export GOBIN=${home_directory}/projects/go/bin
+      export PATH=$GOBIN:$PATH
 
       mkdir -p $GOBIN
-      mkdir -p $HOME/projects/go/pkg
-      mkdir -p $HOME/projects/go/src
+      mkdir -p ${home_directory}/projects/go/pkg
+      mkdir -p ${home_directory}/projects/go/src
 
-      if [ -d /usr/local/opt/qt@5.5 ]; then
-        export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
-        export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+      if test -f ${home_directory}/.zprofile.local; then
+        source ${home_directory}/.zprofile.local
       fi
 
-      if test -f $HOME/.zprofile.local; then
-        source $HOME/.zprofile.local
-      fi
+      source ${asdfVM}/share/asdf/asdf.sh
     '';
+  };
+
+  xdg = {
+    enable = true;
+
+    configHome = "${home_directory}/.config";
+    dataHome   = "${home_directory}/.local/share";
+    cacheHome  = "${home_directory}/.cache";
   };
 }
