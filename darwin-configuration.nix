@@ -1,24 +1,17 @@
 { config, pkgs, ... }:
 
-let
-  sharedPackages = import ./shared-packages.nix (pkgs);
-in
 {
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = [
-    pkgs.curl
-    pkgs.git
-    pkgs.vim
+  environment.systemPackages = with pkgs; [
+    curl
+    git
+    vim
   ];
 
-  environment.pathsToLink = [
-    "/info"
-    "/etc"
-    "/share"
-  ];
+  environment.pathsToLink = [ "/info" "/etc" "/share" "/include" "/lib" "/libexec" ];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -52,4 +45,8 @@ in
 
   nix.maxJobs = 1;
   nix.buildCores = 1;
+
+  programs.bash.enable = true;
+
+  programs.zsh.enable = true;
 }
