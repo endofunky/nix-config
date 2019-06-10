@@ -83,9 +83,30 @@ in
     };
 
     initExtra = ''
-      autoload bashcompinit
-      bashcompinit
+      autoload -Uz compinit && compinit -d "${home_directory}/.zsh/zcompdump"
+      autoload bashcompinit && bashcompinit
       setopt nolist_beep
+
+      bindkey '^R' history-incremental-search-backward
+      bindkey -M vicmd '/' history-incremental-search-backward
+      bindkey -M isearch '^P' history-incremental-search-backward
+      bindkey -M isearch '^N' history-incremental-search-forward
+      bindkey '^P' up-history
+      bindkey '^N' down-history
+      bindkey '^?' backward-delete-char
+      bindkey '^W' backward-kill-word
+      autoload -U edit-command-line
+      zle -N edit-command-line
+      bindkey -M vicmd e edit-command-line
+
+      zstyle ":completion:*" menu select=1
+      zstyle ":completion:*" use-cache on
+      zstyle ":completion:*" group-name ""
+      zstyle ":completion:*" cache-path "${home_directory}/.zsh/zcompcache"
+      zstyle ":completion:*" completer _expand _complete _ignored _approximate
+
+      autoload -U colors
+      colors
 
       source ${asdfVM}/share/asdf/completions/asdf.bash
       source ${pkgs.zsh-git-prompt}/share/zsh-git-prompt/zshrc.sh
