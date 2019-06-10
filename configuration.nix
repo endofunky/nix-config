@@ -30,7 +30,6 @@ in
   environment.systemPackages = with pkgs; [
     acpilight
     curl
-    emacsHEAD
     git
     vim
   ];

@@ -8,7 +8,12 @@ in
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = sharedPackages;
+  environment.systemPackages = [
+    pkgs.curl
+    pkgs.git
+    pkgs.vim
+  ];
+
   environment.pathsToLink = [
     "/info"
     "/etc"

@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 
+with import <nixpkgs> {};
+
 let
   sharedPackages = import ./shared-packages.nix (pkgs);
 in
@@ -17,15 +19,15 @@ in
     ];
   };
 
-  home.packages = sharedPackages ++ [
-    pkgs.google-chrome
-    pkgs.hsetroot
-    pkgs.i3lock
-    pkgs.mplayer
-    pkgs.sbcl
-    pkgs.scrot
-    pkgs.spotify
-    pkgs.traceroute
-    pkgs.whois
+  home.packages = with pkgs; sharedPackages ++ stdenv.lib.optional stdenv.isLinux [
+    google-chrome
+    hsetroot
+    i3lock
+    mplayer
+    sbcl
+    scrot
+    spotify
+    traceroute
+    whois
   ];
 }

@@ -4,17 +4,14 @@ let
   emacsHEAD = import ./pkgs/emacs.nix;
   asdf = import ./pkgs/asdf.nix;
 in
-[
+with pkgs; [
   emacsHEAD
   asdf
-  pkgs.aria2
-  pkgs.curl
-  pkgs.fish
-  pkgs.git
-  pkgs.gnupg
-  pkgs.pythonPackages.editorconfig
-  pkgs.ripgrep
-  pkgs.screen
-  pkgs.vim
-  pkgs.whois
+  aria2
+  fish
+  gnupg
+  pythonPackages.editorconfig
+  ripgrep
+  screen
+  whois
 ]
