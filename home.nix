@@ -25,7 +25,7 @@ in
     asdf
     emacsHEAD
     fish
-    gnupg
+    mplayer
     pythonPackages.editorconfig
     ripgrep
     screen
@@ -34,7 +34,6 @@ in
     google-chrome
     hsetroot
     i3lock
-    mplayer
     sbcl
     scrot
     spotify
@@ -49,6 +48,9 @@ in
     enableFishIntegration = true;
   };
 
+  programs.gpg.enable = true;
+  programs.info.enable = true;
+
   programs.zsh = {
     enable = true;
 
@@ -61,6 +63,8 @@ in
       size = 50000;
       save = 500000;
       ignoreDups = true;
+      share = true;
+      extended = true;
     };
 
     sessionVariables = {
@@ -80,6 +84,10 @@ in
 
       if [ -f "$HOME/.nix-profile/share/bash-completion/completions/asdf.bash" ]; then
         . "$HOME/.nix-profile/share/bash-completion/completions/asdf.bash"
+      fi
+
+      if test -f $HOME/.zshrc.local; then
+        source $HOME/.zshrc.local
       fi
     '';
 
