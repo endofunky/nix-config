@@ -129,6 +129,8 @@ with import <nixpkgs> {};
       "*.elc"
       ".dir-locals.el"
       ".projectile"
+      "*_flymake.*"
+      "flycheck_*.el"
 
       # ycmd
       ".ycm_extra_conf.py"
