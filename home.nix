@@ -33,7 +33,7 @@ in
     screen
     whois
     zsh-git-prompt
-  ] ++ stdenv.lib.optional stdenv.isLinux [
+  ] ++ stdenv.lib.optionals stdenv.isLinux [
     google-chrome
     hsetroot
     i3lock
