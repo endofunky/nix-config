@@ -21,6 +21,15 @@ in
     ];
   };
 
+  home.file = {
+    ".asdfrc".source = ./dotfiles/asdfrc;
+    ".config/user-dirs.dirs".source = ./dotfiles/user-dirs.dirs;
+    ".gemrc".source = ./dotfiles/gemrc;
+    ".pryrc".source = ./dotfiles/pryrc;
+    ".rspec".source = ./dotfiles/rspec;
+    "media/images/Paver.pm".source = ./dotfiles/Paver.pm;
+  };
+
   home.packages = with pkgs; [
     aria2
     asdfVM
@@ -55,6 +64,27 @@ in
 
   programs.gpg.enable = true;
   programs.info.enable = true;
+
+  programs.ssh = {
+    enable = true;
+
+    controlMaster = "auto";
+    controlPath = "/tmp/ssh-%u-%r@%h:%p";
+    controlPersist = "1800";
+    compression = true;
+    hashKnownHosts = true;
+    serverAliveInterval = 10;
+    extraConfig = ''
+     Protocol 2
+     TCPKeepAlive yes
+     VerifyHostKeyDNS yes
+     AddKeysToAgent yes
+    '';
+
+    extraOptionOverrides = {
+      "Include" = "config.d/*";
+    };
+  };
 
   programs.git = {
     enable = true;
@@ -282,7 +312,7 @@ in
       PROMPT='%1~%b$(git_super_status) %# '
 
       if test -f ${home_directory}/.zshrc.local; then
-        source ${home_directory}/.zshrc.local
+      source ${home_directory}/.zshrc.local
       fi
     '';
 
@@ -304,7 +334,7 @@ in
       mkdir -p ${home_directory}/projects/go/src
 
       if test -f ${home_directory}/.zprofile.local; then
-        source ${home_directory}/.zprofile.local
+      source ${home_directory}/.zprofile.local
       fi
 
       source ${asdfVM}/share/asdf/asdf.sh
