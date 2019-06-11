@@ -30,8 +30,8 @@ in
   environment.systemPackages = with pkgs; [
     acpilight
     curl
-    git
     vim
+    wirelesstools
   ];
 
   services.udev.extraHwdb = ''
