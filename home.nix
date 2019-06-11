@@ -320,7 +320,7 @@ in
     cacheHome  = "${home_directory}/.cache";
   };
 
-  xsession = {
+  xsession = if !stdenv.isLinux then {} else {
     enable = true;
     windowManager.command = "emacs";
 
@@ -331,7 +331,7 @@ in
     };
   };
 
-  xresources.extraConfig = ''
+  xresources.extraConfig = if !stdenv.isLinux then "" else ''
     XTerm*dynamicColors: true
     XTerm*eightBitInput: false
     xterm*faceName: DejaVu Sans Mono Book
