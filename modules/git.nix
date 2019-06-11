@@ -11,15 +11,10 @@ with import <nixpkgs> {};
     aliases = {
       br = "branch -v";
       co = "checkout";
-      find = "!git grep --break -C1";
       g = "grep";
       ll = "log --stat -C -1";
       st = "status";
       delete-merged-branches = "!git co master && git branch --merged | grep -v '\\\\*' | xargs -n 1 git branch -d";
-
-      d = "diff";
-      dh = "!git diff HEAD .";
-      dm = "diff master";
 
       squash = "!git reset master && git add -A . && git commit";
       undo = "reset --soft HEAD~1";
@@ -27,12 +22,6 @@ with import <nixpkgs> {};
 
       up = "!git fetch && git rebase --autostash FETCH_HEAD";
       wip = "!git add -A && git commit -m 'wip [ci skip]'";
-
-      rb = "rebase";
-      rbc = "rebase --continue";
-      rbm = "!git rebase master";
-      rbmi = "!git rebase -i master";
-      rbs = "rebase --skip";
 
       assume   = "update-index --assume-unchanged";
       unassume = "update-index --no-assume-unchanged";
