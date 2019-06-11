@@ -47,8 +47,8 @@ in
 
   services.xserver = {
     enable = true;
+    dpi = 120;
     layout = "gb";
-    dpi = 144;
     libinput.enable = true;
     videoDrivers = [ "intel" ];
     desktopManager.default = "none";
