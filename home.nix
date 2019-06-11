@@ -339,6 +339,8 @@ in
 
       source ${asdfVM}/share/asdf/asdf.sh
     '';
+
+    logoutExtra = "[[ -o INTERACTIVE && -t 2 ]] && clear >&2";
   };
 
   xdg = {
