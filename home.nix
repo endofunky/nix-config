@@ -94,7 +94,6 @@ in
 
     extraConfig = {
       core = {
-        excludesfile = "~/.gitignore";
         autocrlf = "input";
         quotepath = "false";
         pager = "`test \"$TERM\" = \"dumb\" && echo cat || echo less`";
