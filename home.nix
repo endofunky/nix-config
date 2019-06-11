@@ -31,6 +31,7 @@ in
     pythonPackages.editorconfig
     ripgrep
     screen
+    shellcheck
     whois
     zsh-git-prompt
   ] ++ stdenv.lib.optionals stdenv.isLinux [
