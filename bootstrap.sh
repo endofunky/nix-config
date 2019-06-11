@@ -12,6 +12,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -sf $PWD/darwin-configuration.nix $HOME/.nixpkgs/darwin-configuration.nix
   . /etc/static/bashrc
   darwin-rebuild switch
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+  sudo ln -sf $PWD/configuration.nix /etc/nixos/configuration.nix
+  sudo ln -sf /etc/nixos/hardware-configuration.nix $PWD/hardware-configuration.nix
+  sudo chown root.root /etc/nixos/configuration.nix
+  sudo chmod 0644 /etc/nixos/configuration.nix
 fi
 
 echo "Bootstrapping home-manager config ..."
