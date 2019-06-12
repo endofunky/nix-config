@@ -43,8 +43,8 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
 
-  nix.maxJobs = 1;
-  nix.buildCores = 1;
+  nix.maxJobs = 4;
+  nix.buildCores = 4;
 
   programs.bash.enable = true;
 
