@@ -16,6 +16,8 @@ with import <nixpkgs> {};
     profileExtra = ''
       xset -b
 
+      xset r rate 250 50
+
       xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Accel Speed" 0.4
       xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Natural Scrolling Enabled" 0
       xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.7
