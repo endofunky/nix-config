@@ -66,7 +66,7 @@ in
       PROMPT='%1~%b$(git_super_status) %# '
 
       if test -f ${home_directory}/.zshrc.local; then
-      source ${home_directory}/.zshrc.local
+        source ${home_directory}/.zshrc.local
       fi
     '';
 
@@ -88,7 +88,7 @@ in
       mkdir -p ${home_directory}/projects/go/src
 
       if test -f ${home_directory}/.zprofile.local; then
-      source ${home_directory}/.zprofile.local
+        source ${home_directory}/.zprofile.local
       fi
 
       source ${asdfVM}/share/asdf/asdf.sh
