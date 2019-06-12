@@ -12,6 +12,19 @@ with import <nixpkgs> {};
       name = "Vanilla-DMZ";
       size = 32;
     };
+
+    profileExtra = ''
+      xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Accel Speed" 0.4
+      xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Natural Scrolling Enabled" 0
+      xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.7
+      xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+      xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+      xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Disable While Typing Enabled" 1
+      xinput --set-prop "Synaptics TM3289-002" "libinput Accel Speed" 0.7
+      xinput --set-prop "Synaptics TM3289-002" "libinput Tapping Enabled" 1
+      xinput --set-prop "Synaptics TM3289-002" "libinput Natural Scrolling Enabled" 1
+      xinput --set-prop "Synaptics TM3289-002" "libinput Disable While Typing Enabled" 1
+    '';
   };
 
   xresources.extraConfig = ''
