@@ -42,19 +42,16 @@ in
   services.cron.enable = true;
   services.timesyncd.enable = true;
   services.tlp.enable = true;
+  services.autorandr.enable = true;
 
   environment.variables.XCURSOR_SIZE = "128";
 
   services.xserver = {
     enable = true;
-    dpi = 120;
     layout = "gb";
     libinput.enable = true;
     videoDrivers = [ "intel" ];
     desktopManager.default = "none";
-    displayManager.slim.enable = true;
-    displayManager.slim.defaultUser = "ts";
-    windowManager.stumpwm.enable = true;
   };
 
   fonts = {

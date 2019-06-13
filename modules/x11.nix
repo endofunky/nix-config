@@ -28,7 +28,31 @@ with import <nixpkgs> {};
       xinput --set-prop "Synaptics TM3289-002" "libinput Tapping Enabled" 1
       xinput --set-prop "Synaptics TM3289-002" "libinput Natural Scrolling Enabled" 1
       xinput --set-prop "Synaptics TM3289-002" "libinput Disable While Typing Enabled" 1
+
+      autorandr -c
     '';
+  };
+
+  programs.autorandr = {
+    enable = true;
+
+    profiles = {
+      "laptop" = {
+        fingerprint = {
+          eDP1 = "00ffffffffffff0030e48b0500000000001a0104a51f1178e25715a150469d290f505400000001010101010101010101010101010101695e00a0a0a029503020a50035ae1000001a000000000000000000000000000000000000000000fe004c4720446973706c61790a2020000000fe004c503134305148322d5350423100b8";
+        };
+        config = {
+          eDP1 = {
+            enable = true;
+            primary = true;
+            dpi = 120;
+            mode = "2560x1440";
+            position = "0x0";
+            rate = "60.00";
+          };
+        };
+      };
+    };
   };
 
   xresources.extraConfig = ''
