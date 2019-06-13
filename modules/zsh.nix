@@ -23,6 +23,10 @@ in
       extended = true;
     };
 
+    shellAliases = {
+      ls = "ls --color";
+    };
+
     sessionVariables = {
       CLICOLOR = "1";
       DIRENV_LOG_FORMAT = "";
