@@ -52,6 +52,8 @@ in
     libinput.enable = true;
     videoDrivers = [ "intel" ];
     desktopManager.default = "none";
+    displayManager.slim.enable = true;
+    displayManager.slim.defaultUser = "ts";
   };
 
   fonts = {
