@@ -75,6 +75,7 @@ in
 
   users.users.ts = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [
       "audio"
       "networkmanager"
