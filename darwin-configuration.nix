@@ -13,6 +13,13 @@
 
   environment.pathsToLink = [ "/info" "/etc" "/share" "/include" "/lib" "/libexec" ];
 
+  fonts = {
+    enableFontDir = true;
+    fonts = with pkgs; [
+      dejavu_fonts
+    ];
+  };
+
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
