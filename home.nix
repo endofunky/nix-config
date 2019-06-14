@@ -59,6 +59,7 @@ in
   };
 
   gtk.enable = true;
+  lib.enable = true;
 
   programs.direnv = {
     enable = true;
