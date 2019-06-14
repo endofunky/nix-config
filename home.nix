@@ -9,6 +9,7 @@ let
 in
 {
   nixpkgs.config.allowUnfree = true;
+  news.display = "silent";
 
   imports = [
     ./modules/git.nix
