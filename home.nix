@@ -60,7 +60,7 @@ in
     ];
   };
 
-  gtk.enable = true;
+  gtk.enable = !stdenv.isDarwin;
   lib.enable = true;
 
   programs.direnv = {
