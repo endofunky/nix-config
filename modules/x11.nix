@@ -3,6 +3,10 @@
 with import <nixpkgs> {};
 
 {
+  home.packages = [
+    pkgs.dropbox
+  ];
+
   xsession = {
     enable = true;
     windowManager.command = "emacs";
@@ -31,6 +35,22 @@ with import <nixpkgs> {};
 
       autorandr -c
     '';
+  };
+
+  systemd.user.services.dropbox = {
+    Unit = {
+      Description = "Dropbox";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = "${pkgs.dropbox}/bin/dropbox";
+    };
   };
 
   programs.autorandr = {
