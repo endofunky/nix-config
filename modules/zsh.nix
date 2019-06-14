@@ -28,6 +28,7 @@ in
     };
 
     sessionVariables = {
+      BROWSER = "google-chrome-stable";
       CLICOLOR = "1";
       DIRENV_LOG_FORMAT = "";
       EDITOR = "vim";
