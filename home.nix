@@ -25,6 +25,7 @@ in
     emacsHEAD
     fish
     fortune
+    ispell
     mplayer
     pythonPackages.editorconfig
     ripgrep
