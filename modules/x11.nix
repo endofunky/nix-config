@@ -2,6 +2,9 @@
 
 with import <nixpkgs> {};
 
+let
+  home_directory = builtins.getEnv "HOME";
+in
 {
   home.packages = [
     pkgs.dropbox
@@ -32,6 +35,8 @@ with import <nixpkgs> {};
       xinput --set-prop "Synaptics TM3289-002" "libinput Tapping Enabled" 1
       xinput --set-prop "Synaptics TM3289-002" "libinput Natural Scrolling Enabled" 1
       xinput --set-prop "Synaptics TM3289-002" "libinput Disable While Typing Enabled" 1
+
+      test -r ${home_directory}/media/images/Paver.pm && hsetroot -tile ${home_directory}/media/images/Paver.pm
 
       autorandr -c
     '';
