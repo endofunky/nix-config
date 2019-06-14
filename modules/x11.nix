@@ -8,8 +8,8 @@ with import <nixpkgs> {};
     windowManager.command = "emacs";
 
     pointerCursor = {
-      package = pkgs.vanilla-dmz;
-      name = "Vanilla-DMZ";
+      package = pkgs.gnome3.defaultIconTheme;
+      name = "Adwaita";
       size = 32;
     };
 
