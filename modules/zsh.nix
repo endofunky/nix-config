@@ -33,7 +33,8 @@ in
       DIRENV_LOG_FORMAT = "";
       EDITOR = "vim";
       KEYTIMEOUT = "1";
-      LC_CTYPE = "en_US.UTF-8";
+      LC_ALL = "en_GB.UTF-8";
+      LANGUAGE = "en_GB.UTF-8";
       LSCOLORS = "Gxfxcxdxbxegedabagacad";
       TERM = "xterm-256color";
       VISUAL = "vim";
