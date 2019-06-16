@@ -45,8 +45,6 @@ in
   services.tlp.enable = true;
   services.autorandr.enable = true;
 
-  environment.variables.XCURSOR_SIZE = "128";
-
   services.xserver = {
     enable = true;
     layout = "gb";
