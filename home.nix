@@ -4,8 +4,9 @@ with import <nixpkgs> {};
 
 let
   home_directory = builtins.getEnv "HOME";
-  emacsHEAD = import ./pkgs/emacs.nix;
   asdfVM = import ./pkgs/asdf.nix;
+  emacsHEAD = import ./pkgs/emacs.nix;
+  sicp = import ./pkgs/sicp.nix;
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -31,6 +32,7 @@ in
     ripgrep
     screen
     shellcheck
+    sicp
     whois
     zsh-git-prompt
   ] ++ stdenv.lib.optionals stdenv.isLinux [
