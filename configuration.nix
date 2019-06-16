@@ -35,15 +35,16 @@ in
     wirelesstools
   ];
 
+  services.autorandr.enable = true;
+  services.cron.enable = true;
+  services.timesyncd.enable = true;
+  services.tlp.enable = true;
+  services.upower.enable = true;
+
   services.udev.extraHwdb = ''
     evdev:atkbd:dmi:*
     KEYBOARD_KEY_3a=leftctrl
   '';
-
-  services.cron.enable = true;
-  services.timesyncd.enable = true;
-  services.tlp.enable = true;
-  services.autorandr.enable = true;
 
   services.xserver = {
     enable = true;
@@ -67,7 +68,6 @@ in
   };
 
   sound.enable = true;
-  services.upower.enable = true;
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.brightnessctl.enable = true;
