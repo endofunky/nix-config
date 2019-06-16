@@ -33,6 +33,7 @@ in
     screen
     shellcheck
     sicp
+    unzip
     whois
     zsh-git-prompt
   ] ++ stdenv.lib.optionals stdenv.isLinux [
