@@ -1,10 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   emacsHEAD = import ./pkgs/emacs.nix;
 in
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+  ] ++ lib.optionals (builtins.pathExists ./local.nix) [
+    ./local.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
