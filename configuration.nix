@@ -29,6 +29,7 @@ in
   environment.systemPackages = with pkgs; [
     acpilight
     curl
+    exfat
     pamix
     vim
     wirelesstools
