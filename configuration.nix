@@ -55,6 +55,11 @@ in
     displayManager.slim.defaultUser = "ts";
   };
 
+  system.activationScripts.binbash = {
+    text = "ln -sf ${pkgs.bash}/bin/bash /bin/bash";
+    deps = [];
+  };
+
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
