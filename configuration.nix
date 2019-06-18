@@ -41,6 +41,8 @@
   powerManagement.cpuFreqGovernor = null;
   services.tlp.enable = true;
 
+  virtualisation.docker.enable = true;
+
   services.udev.extraHwdb = ''
     evdev:atkbd:dmi:*
     KEYBOARD_KEY_3a=leftctrl
@@ -81,6 +83,7 @@
     shell = pkgs.zsh;
     extraGroups = [
       "audio"
+      "docker"
       "networkmanager"
       "systemd-journal"
       "video"
