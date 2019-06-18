@@ -1,3 +1,4 @@
 result
 hardware-configuration.nix
 configuration.local.nix
+home.local.nix

@@ -16,6 +16,8 @@ in
     ./home/git.nix
     ./home/ssh.nix
     ./home/zsh.nix
+  ] ++ lib.optionals (builtins.pathExists ./home.local.nix) [
+    ./home.local.nix
   ] ++ stdenv.lib.optionals stdenv.isLinux [
     ./home/x11.nix
   ];
