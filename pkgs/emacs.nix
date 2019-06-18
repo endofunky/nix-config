@@ -11,8 +11,9 @@ stdenv.lib.overrideDerivation (pkgs.emacs.override {
 
   patches = null;
 
-  src = fetchgit {
-    url = https://git.savannah.gnu.org/git/emacs.git;
+  src = fetchFromGitHub {
+    owner = "emacs-mirror";
+    repo = "emacs";
     rev = "7aaf500701be3b51c686b7d86c9b505ef5fa9b8f";
     sha256 = "03l7ffibsxbiyn0xdmc6888ichb2mkrdrl5migrzp478gxy6614w";
   };
