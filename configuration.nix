@@ -37,8 +37,10 @@ in
   services.autorandr.enable = true;
   services.cron.enable = true;
   services.timesyncd.enable = true;
-  services.tlp.enable = true;
   services.upower.enable = true;
+
+  powerManagement.cpuFreqGovernor = null;
+  services.tlp.enable = true;
 
   services.udev.extraHwdb = ''
     evdev:atkbd:dmi:*
