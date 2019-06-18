@@ -13,11 +13,11 @@ in
   news.display = "silent";
 
   imports = [
-    ./modules/git.nix
-    ./modules/ssh.nix
-    ./modules/zsh.nix
+    ./home/git.nix
+    ./home/ssh.nix
+    ./home/zsh.nix
   ] ++ stdenv.lib.optionals stdenv.isLinux [
-    ./modules/x11.nix
+    ./home/x11.nix
   ];
 
   home.packages = with pkgs; [
