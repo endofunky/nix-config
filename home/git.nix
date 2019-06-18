@@ -159,6 +159,13 @@ with import <nixpkgs> {};
       "cscope.po.out"
       "compile_commands.json"
       ".ccls-cache"
+
+      # Direnv / nix
+      ".envrc"
+      ".direnv/"
+      ".mysql"
+      ".nix-gems"
+      "default.nix"
     ];
   };
 
