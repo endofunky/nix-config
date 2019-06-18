@@ -1,8 +1,5 @@
 { config, pkgs, lib, ... }:
 
-let
-  emacsHEAD = import ./pkgs/emacs.nix;
-in
 {
   imports = [
     ./hardware-configuration.nix
