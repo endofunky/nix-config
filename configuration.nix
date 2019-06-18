@@ -69,7 +69,6 @@ in
       corefonts
       dejavu_fonts
       google-fonts
-      terminus_font
     ];
   };
 

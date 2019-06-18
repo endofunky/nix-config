@@ -14,6 +14,8 @@
 
   i18n = {
     consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-u22n.psf.gz";
+    consolePackages = with pkgs; [
+      terminus_font
+    ];
   };
 }
-
