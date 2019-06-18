@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ./local.nix
+    ./configuration.local.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
