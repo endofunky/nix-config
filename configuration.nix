@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+  ] ++ lib.optionals (builtins.pathExists ./configuration.local.nix) [
     ./configuration.local.nix
   ];
 
