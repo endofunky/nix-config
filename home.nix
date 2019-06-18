@@ -16,10 +16,9 @@ in
     ./home/git.nix
     ./home/ssh.nix
     ./home/zsh.nix
+    ./home/x11.nix
   ] ++ lib.optionals (builtins.pathExists ./home.local.nix) [
     ./home.local.nix
-  ] ++ stdenv.lib.optionals stdenv.isLinux [
-    ./home/x11.nix
   ];
 
   home.packages = with pkgs; [
@@ -28,24 +27,23 @@ in
     emacsHEAD
     fish
     fortune
+    google-chrome
+    hsetroot
+    i3lock
     ispell
     mplayer
     pythonPackages.editorconfig
     ripgrep
     screen
+    scrot
     shellcheck
     sicp
-    unzip
-    whois
-    zsh-git-prompt
-  ] ++ stdenv.lib.optionals stdenv.isLinux [
-    google-chrome
-    hsetroot
-    i3lock
-    scrot
     spotify
     traceroute
+    unzip
     whois
+    whois
+    zsh-git-prompt
   ];
 
   home.file = {
@@ -65,7 +63,7 @@ in
     ];
   };
 
-  gtk.enable = !stdenv.isDarwin;
+  gtk.enable = true;
   lib.enable = true;
 
   programs.direnv = {
