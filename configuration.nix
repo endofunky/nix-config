@@ -14,6 +14,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.earlyVconsoleSetup = true;
+  boot.kernel.sysctl."vm.max_map_count" = 262144;
 
   boot.initrd.luks.devices = [
     { name = "root"; device = "/dev/nvme0n1p2"; preLVM = true; allowDiscards = true; }
