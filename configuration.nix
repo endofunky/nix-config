@@ -16,15 +16,9 @@ in
   boot.earlyVconsoleSetup = true;
   boot.kernel.sysctl."vm.max_map_count" = 262144;
 
-  boot.initrd.luks.devices = [
-    { name = "root"; device = "/dev/nvme0n1p2"; preLVM = true; allowDiscards = true; }
-  ];
-
-  networking.hostName = "xor";
   networking.networkmanager.enable = true;
 
   i18n = {
-    consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-u22n.psf.gz";
     consoleKeyMap = "uk";
     defaultLocale = "en_GB.UTF-8";
   };
