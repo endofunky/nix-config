@@ -42,7 +42,7 @@ in
     traceroute
     unzip
     whois
-    whois
+    zoom-us
     zsh-git-prompt
   ];
 
