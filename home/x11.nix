@@ -43,48 +43,6 @@ in
     };
   };
 
-  # services.polybar = {
-  #   enable = true;
-  #   script = "polybar top &";
-  #   config = {
-  #     "bar/top" = {
-  #       font-0 = "DejaVu Sans Mono:size=12;3";
-  #       monitor = "\${env:MONITOR:eDP1}";
-  #       width = "100%";
-  #       height = "20";
-  #       padding = 1;
-  #       background = "#4D648D";
-  #       foreground = "#FFFFFF";
-  #       modules-right = "wireless-network battery date";
-  #     };
-  #     "module/wireless-network" = {
-  #       type = "internal/network";
-  #       interface = "wlp4s0";
-  #       interval = "3.0";
-  #       udspeed-minwidth = 0;
-  #       format-connected = "<label-connected>";
-  #       format-disconnected = "<label-disconnected>";
-  #       label-connected = "%signal% %essid%";
-  #       label-connected-foreground = "#eefafafa";
-  #       label-disconnected = "";
-  #       label-disconnected-foreground = "#66ffffff";
-  #     };
-  #     "module/date" = {
-  #       type = "internal/date";
-  #       internal = 5;
-  #       date = "%Y/%m/%d";
-  #       time = "%H:%M:%S";
-  #       label = "%date% %time%";
-  #     };
-  #     "module/battery" = {
-  #       type = "internal/battery";
-  #       battery = "BAT0";
-  #       adapter = "AC";
-  #       full-at = 99;
-  #     };
-  #   };
-  # };
-
   programs.autorandr = {
     enable = true;
 
