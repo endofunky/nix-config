@@ -56,6 +56,7 @@ in
         config = {
           eDP1 = {
             enable = true;
+            dpi = 90;
             primary = true;
             mode = "1920x1080";
             position = "0x0";
