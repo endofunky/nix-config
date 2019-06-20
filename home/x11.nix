@@ -19,8 +19,6 @@ in
       xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Natural Scrolling Enabled" 0
       test -r ${home_directory}/media/images/Paver.pm && hsetroot -tile ${home_directory}/media/images/Paver.pm
 
-      nm-applet &
-
       autorandr -c
     '';
   };

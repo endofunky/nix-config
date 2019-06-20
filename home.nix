@@ -32,7 +32,6 @@ in
     i3lock
     ispell
     mplayer
-    networkmanagerapplet
     pythonPackages.editorconfig
     ripgrep
     screen
