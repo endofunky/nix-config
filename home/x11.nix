@@ -56,7 +56,7 @@ in
         config = {
           eDP1 = {
             enable = true;
-            dpi = 90;
+            dpi = 85;
             primary = true;
             mode = "1920x1080";
             position = "0x0";
@@ -71,7 +71,7 @@ in
         };
         config = {
           HDMI1 = {
-            dpi = 100;
+            dpi = 85;
             enable = true;
             primary = true;
             mode = "1920x1080";
@@ -81,9 +81,6 @@ in
           eDP1 = {
             enable = false;
             primary = false;
-            # mode = "1920x1080";
-            # position = "0x0";
-            # rate = "60.00";
           };
         };
       };
