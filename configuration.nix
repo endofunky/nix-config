@@ -14,6 +14,8 @@
   boot.earlyVconsoleSetup = true;
   boot.kernel.sysctl."vm.max_map_count" = 262144;
 
+  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+
   networking.networkmanager.enable = true;
   networking.extraHosts = "127.0.0.1 ${config.networking.hostName}.local";
 
