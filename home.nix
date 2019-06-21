@@ -48,9 +48,9 @@ in
 
   home.file = {
     ".asdfrc".source = ./dotfiles/asdfrc;
+    ".config/pry/pryrc".source = ./dotfiles/pryrc;
     ".config/user-dirs.dirs".source = ./dotfiles/user-dirs.dirs;
     ".gemrc".source = ./dotfiles/gemrc;
-    ".pryrc".source = ./dotfiles/pryrc;
     ".rspec".source = ./dotfiles/rspec;
     "media/images/Paver.pm".source = ./dotfiles/Paver.pm;
   };
