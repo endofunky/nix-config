@@ -49,7 +49,7 @@ in
         };
         config = {
           HDMI1 = {
-            dpi = 85;
+            dpi = 80;
             enable = true;
             primary = true;
             mode = "1920x1080";
