@@ -27,19 +27,6 @@ in
       ls = "ls --color";
     };
 
-    sessionVariables = {
-      BROWSER = "google-chrome-stable";
-      CLICOLOR = "1";
-      DIRENV_LOG_FORMAT = "";
-      EDITOR = "vim";
-      KEYTIMEOUT = "1";
-      LC_ALL = "en_GB.UTF-8";
-      LANGUAGE = "en_GB.UTF-8";
-      LSCOLORS = "Gxfxcxdxbxegedabagacad";
-      TERM = "xterm-256color";
-      VISUAL = "vim";
-    };
-
     initExtra = ''
       autoload -Uz compinit && compinit -d "${home_directory}/.zsh/zcompdump"
       autoload bashcompinit && bashcompinit
