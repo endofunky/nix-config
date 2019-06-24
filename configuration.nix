@@ -31,6 +31,7 @@
     curl
     exfat
     pamix
+    rfkill
     vim
     wirelesstools
   ];
@@ -80,6 +81,13 @@
   hardware.pulseaudio.enable = true;
   hardware.brightnessctl.enable = true;
 
+  security.sudo = {
+    enable = true;
+    extraConfig = ''
+      %rfkill ALL=NOPASSWD: ${pkgs.rfkill}/bin/rfkill
+    '';
+  };
+
   users.users.ts = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -87,6 +95,7 @@
       "audio"
       "docker"
       "networkmanager"
+      "rfkill"
       "systemd-journal"
       "video"
       "wheel"
