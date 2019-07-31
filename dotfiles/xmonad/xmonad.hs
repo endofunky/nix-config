@@ -23,13 +23,14 @@ colorPurple     = "#b294bb"
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig
              { font = "xft:DejaVu Sans Mono-12"
-             , bgColor = colorBackground
-             , fgColor = colorForeground
-             , fgHLight = colorRed
-             , bgHLight = colorBackground
-             , borderColor = colorAqua
+             , bgColor = colorBlue
+             , fgColor = colorBackground
+             , fgHLight = colorYellow
+             , bgHLight = colorBlue
+             , borderColor = colorBackground
              , promptBorderWidth = 1
-             , height = 30
+             , height = 34
+             , position = Top
              , defaultText = []
              }
 
@@ -41,8 +42,7 @@ myKeys c = mkKeymap c
     , ("M-C-l", nextWS)
     , ("M-C-h", prevWS)
     , ("C-d k", kill)
-    , ("C-d l", spawn "i3lock -e -c 000000")
-    , ("C-d S-l", spawn "i3lock -e -c 000000 && systemctl hibernate")
+    , ("C-d S-l", spawn "i3lock -e -c 000000")
     , ("C-d S-4", shellPrompt myXPConfig)
     , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5")
     , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
