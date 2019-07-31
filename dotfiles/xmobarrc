@@ -1,5 +1,5 @@
 Config {
-       font = "xft:DejaVu Sans Mono:size=10:antialias=true"
+       font = "xft:DejaVu Sans Mono:size=11:antialias=true"
        , bgColor = "#1d1f21"
        , fgColor = "#bbc2cf"
        , position = TopW L 100
