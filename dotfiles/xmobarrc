@@ -20,9 +20,15 @@ Config {
                                                    -- charged status
                                                    , "-i"   , "<fc=#98be65>Charged</fc>"
                                          ] 50
+                    , Run Wireless "wlan0"
+                          [ "--low"      , "#cc6666"
+                          , "--normal"   , "#c5c8c6"
+                          , "--high"     , "#b5bd68"
+                          , "--template" , "<essid> <quality>"
+                          ] 50
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %battery% | <fc=#ECBE7B>%date%</fc> "   -- #69DFFA
+       , template = "%StdinReader% }{ %battery% | %wlan0wi% | <fc=#ECBE7B>%date%</fc> "   -- #69DFFA
        }
