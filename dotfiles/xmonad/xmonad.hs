@@ -26,6 +26,8 @@ myKeys c = mkKeymap c
     , ("M-C-l", nextWS)
     , ("M-C-h", prevWS)
     , ("C-d k", kill)
+    , ("C-d l", spawn "i3lock -e -c 000000")
+    , ("C-d S-l", spawn "i3lock -e -c 000000 && systemctl hibernate")
     , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5")
     , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
     , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +10000")
