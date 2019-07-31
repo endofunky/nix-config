@@ -32,6 +32,8 @@ myKeys c = mkKeymap c
     , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -10000")
     , ("<XF86AudioMicMute>", spawn "pactl set-source-mute 1 toggle")
     , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    , ("<Print>", spawn "scrot -e 'mv $f ~/media/images/'")
+    , ("M-<Print>", spawn "scrot -s -e 'mv $f ~/media/images/'")
     ]
 
 main :: IO ()
