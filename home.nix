@@ -42,6 +42,7 @@ in
     traceroute
     unzip
     whois
+    xmobar
     zoom-us
     zsh-git-prompt
   ];
@@ -50,6 +51,7 @@ in
     ".asdfrc".source = ./dotfiles/asdfrc;
     ".config/pry/pryrc".source = ./dotfiles/pryrc;
     ".config/user-dirs.dirs".source = ./dotfiles/user-dirs.dirs;
+    ".config/xmobar/xmobarrc".source = ./dotfiles/xmobarrc;
     ".gemrc".source = ./dotfiles/gemrc;
     ".rspec".source = ./dotfiles/rspec;
     "media/images/Paver.pm".source = ./dotfiles/Paver.pm;
