@@ -21,7 +21,7 @@ colorBlue       = "#81a2be"
 colorPurple     = "#b294bb"
 
 myXPConfig :: XPConfig
-myXPConfig = defaultXPConfig
+myXPConfig = def
     { font = "xft:DejaVu Sans Mono-12"
     , bgColor = colorBlue
     , fgColor = colorBackground
@@ -60,6 +60,6 @@ main = xmonad $ ewmh $ def
     { terminal = "xterm"
     , normalBorderColor = colorBackground
     , focusedBorderColor = colorSelection
-    , workspaces = map show [(1 :: Integer)..9]
+    , workspaces = map show [1..9]
     , keys = myKeys
     }

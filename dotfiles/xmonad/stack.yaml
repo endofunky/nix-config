@@ -1,0 +1,11 @@
+resolver: lts-13.6
+compiler: ghc-8.6.4
+
+packages:
+  - .
+
+nix:
+  enable: true
+  pure: false
+  shell-file: shell.nix
+

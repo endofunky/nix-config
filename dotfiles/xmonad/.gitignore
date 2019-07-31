@@ -1,0 +1,4 @@
+*.o
+*.hi
+.stack-work/
+/*.cabal

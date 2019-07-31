@@ -2,15 +2,18 @@
 
 with nixpkgs;
 
-let
-  haskell = haskellPackages.ghcWithPackages (ps: with ps; [
-    hlint
-    hasktags
-    xmonad
-    xmonad-contrib
-    xmonad-extras
-  ]);
-in
-mkShell {
-  buildInputs = with pkgs; [ haskell ];
+haskell.lib.buildStackProject {
+  inherit ghc;
+  name = "xmonad-ef";
+  buildInputs = [
+    alsaLib
+    pkg-config
+    x11
+    xorg.libX11
+    xorg.libXScrnSaver
+    xorg.libXext
+    xorg.libXinerama
+    xorg.libXrandr
+    xorg.libXrender
+  ];
 }
