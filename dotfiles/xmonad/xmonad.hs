@@ -22,17 +22,17 @@ colorPurple     = "#b294bb"
 
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig
-             { font = "xft:DejaVu Sans Mono-12"
-             , bgColor = colorBlue
-             , fgColor = colorBackground
-             , fgHLight = colorYellow
-             , bgHLight = colorBlue
-             , borderColor = colorBackground
-             , promptBorderWidth = 1
-             , height = 34
-             , position = Top
-             , defaultText = []
-             }
+    { font = "xft:DejaVu Sans Mono-12"
+    , bgColor = colorBlue
+    , fgColor = colorBackground
+    , fgHLight = colorYellow
+    , bgHLight = colorBlue
+    , borderColor = colorBackground
+    , promptBorderWidth = 1
+    , height = 34
+    , position = Top
+    , defaultText = []
+    }
 
 myKeys :: XConfig l -> Map.Map (KeyMask, KeySym) (X ())
 myKeys c = mkKeymap c
