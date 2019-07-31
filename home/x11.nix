@@ -8,7 +8,16 @@ in
 {
   xsession = {
     enable = true;
-    windowManager.command = "emacs";
+
+    windowManager.xmonad = {
+      enable = true;
+      extraPackages = hpkgs: [
+        hpkgs.xmonad-contrib
+        hpkgs.xmonad-extras
+      ];
+      enableContribAndExtras = true;
+      config = ../dotfiles/xmonad/xmonad.hs;
+    };
 
     profileExtra = ''
       xset -b
