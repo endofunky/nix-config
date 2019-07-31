@@ -40,14 +40,14 @@ instance Show MyColor where
 myXPConfig :: XPConfig
 myXPConfig =
   def
-  { font = "xft:DejaVu Sans Mono-12"
-  , bgColor = show Blue
-  , fgColor = show Background
+  { font = "xft:DejaVu Sans Mono-11"
+  , bgColor = show Selection
+  , fgColor = show Foreground
   , fgHLight = show Yellow
-  , bgHLight = show Blue
+  , bgHLight = show Selection
   , borderColor = show Background
   , promptBorderWidth = 1
-  , height = 34
+  , height = 30
   , position = Top
   , defaultText = []
   }
@@ -61,7 +61,7 @@ myKeys c =
   , ("M-C-l", nextWS)
   , ("M-C-h", prevWS)
   , ("C-d k", kill)
-  , ("C-d S-4", shellPrompt myXPConfig)
+  , ("C-d <Space>", shellPrompt myXPConfig)
   , ("C-d S-l", spawn "i3lock -e -c 000000")
   , ("<XF86Display>", spawn "i3lock -e -c 000000 && systemctl hibernate")
   , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5")
