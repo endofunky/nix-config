@@ -18,6 +18,7 @@
 
   networking.networkmanager.enable = true;
   networking.extraHosts = "127.0.0.1 ${config.networking.hostName}.local";
+  networking.usePredictableInterfaceNames = false;
 
   i18n = {
     consoleKeyMap = "uk";
