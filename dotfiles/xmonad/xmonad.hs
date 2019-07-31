@@ -2,6 +2,8 @@ import qualified Data.Map as Map
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.EwmhDesktops (ewmh)
+import XMonad.Prompt
+import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 
 -- Tomorrow Night Colors:
@@ -18,6 +20,19 @@ colorAqua       = "#8abeb7"
 colorBlue       = "#81a2be"
 colorPurple     = "#b294bb"
 
+myXPConfig :: XPConfig
+myXPConfig = defaultXPConfig
+             { font = "xft:DejaVu Sans Mono-12"
+             , bgColor = colorBackground
+             , fgColor = colorForeground
+             , fgHLight = colorRed
+             , bgHLight = colorBackground
+             , borderColor = colorAqua
+             , promptBorderWidth = 1
+             , height = 30
+             , defaultText = []
+             }
+
 myKeys :: XConfig l -> Map.Map (KeyMask, KeySym) (X ())
 myKeys c = mkKeymap c
     [ ("C-d x", spawn $ terminal c)
@@ -28,6 +43,7 @@ myKeys c = mkKeymap c
     , ("C-d k", kill)
     , ("C-d l", spawn "i3lock -e -c 000000")
     , ("C-d S-l", spawn "i3lock -e -c 000000 && systemctl hibernate")
+    , ("C-d S-4", shellPrompt myXPConfig)
     , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5")
     , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
     , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +10000")
