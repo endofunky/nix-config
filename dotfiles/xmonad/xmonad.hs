@@ -6,6 +6,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Prompt
 import XMonad.Hooks.ManageDocks
+import XMonad.Prompt.ConfirmPrompt
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 import XMonad.Util.Run(spawnPipe)
@@ -60,7 +61,7 @@ myKeys c =
   , ("C-d f", spawn "google-chrome-stable")
   , ("M-C-l", nextWS)
   , ("M-C-h", prevWS)
-  , ("C-d k", kill)
+  , ("C-d k", confirmPrompt myXPConfig "kill" kill)
   , ("C-d <Space>", shellPrompt myXPConfig)
   , ("C-d S-l", spawn "i3lock -e -c 000000")
   , ("<XF86Display>", spawn "i3lock -e -c 000000 && systemctl hibernate")
