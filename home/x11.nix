@@ -90,10 +90,60 @@ in
   };
 
   xresources.extraConfig = ''
+    ! TomorrowNight
+    #define t_background #1d1f21
+    #define t_current_line #282a2e
+    #define t_selection #373b41
+    #define t_foreground #c5c8c6
+    #define t_comment	#969896
+    #define t_red	#cc6666
+    #define t_orange #de935f
+    #define t_yellow #f0c674
+    #define t_green #b5bd68
+    #define t_aqua #8abeb7
+    #define t_blue #81a2be
+    #define t_purple #b294bb
+
+    *.foreground:   t_foreground
+    *.background:   t_background
+    *.cursorColor:  #aeafad
+
+    ! Black / Grey
+    *.color0:       #000000
+    *.color8:       #666666
+
+    ! Red / Bright Red
+    *.color1:       t_red
+    *.color9:       #FF3334
+
+    ! Green + Bright Green
+    *.color2:       t_green
+    *.color10:      #9ec400
+
+    ! Yellow (Orange) + Bright Yellow (Yellow)
+    *.color3:       t_orange
+    *.color11:      t_yellow
+
+    ! Blue + Bright Blue
+    *.color4:       t_blue
+    *.color12:      t_blue
+
+    ! Magenta (Purple) + Bright Magenta
+    *.color5:       t_purple
+    *.color13:      #b777e0
+
+    ! Cyan (Aqua) + Bright Cyan
+    *.color6:       t_aqua
+    *.color14:      #54ced6
+
+    ! Light Grey (Selection) + White (Current Line)
+    *.color7:       t_selection
+    *.color15:      t_current_line
+
     XTerm*dynamicColors: true
     XTerm*eightBitInput: false
     xterm*faceName: DejaVu Sans Mono Book
-    xterm*faceSize: 9
+    xterm*faceSize: 11
     XTerm*jumpScroll: true
     XTerm*loginShell: true
     XTerm*multiScroll: true
@@ -114,24 +164,5 @@ in
     Xft*autohint:   false
     Xft*hintstyle:  hintslight
     Xft*lcdfilter:  lcddefault
-
-    *foreground: white
-    *background: black
-    *color0: rgb:00/00/00
-    *color1: rgb:a8/00/00
-    *color2: rgb:00/a8/00
-    *color3: rgb:a8/54/00
-    *color4: rgb:00/00/a8
-    *color5: rgb:a8/00/a8
-    *color6: rgb:00/a8/a8
-    *color7: rgb:a8/a8/a8
-    *color8: rgb:54/54/54
-    *color9: rgb:fc/54/54
-    *color10: rgb:54/fc/54
-    *color11: rgb:fc/fc/54
-    *color12: rgb:54/54/fc
-    *color13: rgb:fc/54/fc
-    *color14: rgb:54/fc/fc
-    *color15: rgb:fc/fc/fc
   '';
 }
