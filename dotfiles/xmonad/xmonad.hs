@@ -3,7 +3,7 @@ import System.IO
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.EwmhDesktops (ewmh)
+import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Prompt
 import XMonad.Hooks.ManageDocks
 import XMonad.Prompt.Shell
@@ -81,7 +81,9 @@ main = do
     { terminal = "xterm"
     , manageHook = manageDocks <+> manageHook def
     , layoutHook = avoidStruts  $ layoutHook def
-    , handleEventHook = handleEventHook def <+> docksEventHook
+    , handleEventHook = handleEventHook def
+                        <+> fullscreenEventHook
+                        <+> docksEventHook
     , logHook = dynamicLogWithPP xmobarPP
                 { ppOutput = hPutStrLn xmproc
                 , ppTitle = xmobarColor (show Green)  "" . shorten 50
