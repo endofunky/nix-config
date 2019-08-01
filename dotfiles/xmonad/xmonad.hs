@@ -7,6 +7,7 @@ import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Prompt
 import XMonad.Hooks.ManageDocks
 import XMonad.Prompt.ConfirmPrompt
+import XMonad.Prompt.FuzzyMatch
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 import XMonad.Util.Run(spawnPipe)
@@ -51,6 +52,7 @@ myXPConfig =
   , height = 30
   , position = Top
   , defaultText = []
+  , searchPredicate = fuzzyMatch
   }
 
 myKeys :: XConfig l -> Map (KeyMask, KeySym) (X ())
