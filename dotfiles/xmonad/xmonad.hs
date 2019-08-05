@@ -2,11 +2,11 @@ import Data.Map (Map)
 import System.IO
 import XMonad
 import XMonad.Actions.CycleWS
+import XMonad.Actions.Navigation2D
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Prompt
 import XMonad.Hooks.ManageDocks
-import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders (smartBorders)
@@ -17,6 +17,8 @@ import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 import XMonad.Util.Run(spawnPipe)
 import XMonad.StackSet (focusDown)
+
+import qualified XMonad.Layout.BinarySpacePartition as BSP
 
 data MyColor = Background
              | Current
@@ -67,14 +69,26 @@ myKeys c =
   [ ("C-d x", spawn $ terminal c)
   , ("C-d e", spawn "emacs")
   , ("C-d f", spawn "google-chrome-stable")
-  , ("M-C-l", nextWS)
-  , ("M-C-h", prevWS)
+  , ("M1-C-l", nextWS)
+  , ("M1-C-h", prevWS)
   , ("M-<Tab>", windows focusDown)
   , ("C-d <Backspace>", confirmPrompt myXPConfig "kill" kill)
-  , ("C-d h", sendMessage $ Go L)
-  , ("C-d j", sendMessage $ Go D)
-  , ("C-d k", sendMessage $ Go U)
-  , ("C-d l", sendMessage $ Go R)
+  , ("C-d h", windowGo L False)
+  , ("C-d j", windowGo D False)
+  , ("C-d k", windowGo U False)
+  , ("C-d l", windowGo R False)
+  , ("M4-C-h", windowSwap L False)
+  , ("M4-C-j", windowSwap D False)
+  , ("M4-C-k", windowSwap U False)
+  , ("M4-C-l", windowSwap R False)
+  , ("M4-h", sendMessage $ BSP.ExpandTowards L)
+  , ("M4-j", sendMessage $ BSP.ExpandTowards D)
+  , ("M4-k", sendMessage $ BSP.ExpandTowards U)
+  , ("M4-l", sendMessage $ BSP.ExpandTowards R)
+  , ("M4-S-h", sendMessage $ BSP.ShrinkFrom R)
+  , ("M4-S-j", sendMessage $ BSP.ShrinkFrom U)
+  , ("M4-S-k", sendMessage $ BSP.ShrinkFrom D)
+  , ("M4-S-l", sendMessage $ BSP.ShrinkFrom L)
   , ("C-d <Space>", shellPrompt myXPConfig)
   , ("C-d <Return>", sendMessage $ Toggle FULL)
   , ("C-d C-l", shiftTo Next HiddenWS >> moveTo Next HiddenWS)
@@ -87,20 +101,23 @@ myKeys c =
   , ("<XF86AudioMicMute>", spawn "pactl set-source-mute 1 toggle")
   , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
   , ("<Print>", spawn "scrot -e 'mv $f ~/media/images/'")
-  , ("M-<Print>", spawn "scrot -s -e 'mv $f ~/media/images/'")
+  , ("M1-<Print>", spawn "scrot -s -e 'mv $f ~/media/images/'")
   ]
 
 main :: IO ()
 main = do
   xmproc <- spawnPipe "xmobar ~/.config/xmobar/xmobarrc"
-  xmonad $ ewmh $ def
+  xmonad
+    $ withNavigation2DConfig def
+    $ ewmh
+    $ def
     { terminal = "xterm"
     , manageHook = manageDocks <+> manageHook def
     , layoutHook = windowNavigation
                  . avoidStruts
                  $ smartBorders
                  $ mkToggle (single FULL)
-                 $ emptyBSP
+                 $ BSP.emptyBSP
     , handleEventHook = handleEventHook def
                         <+> fullscreenEventHook
                         <+> docksEventHook
@@ -111,7 +128,7 @@ main = do
                 , ppCurrent = xmobarColor (show Orange) ""  . wrap "[" "]"
                 }
     , normalBorderColor = show Background
-    , focusedBorderColor = show Selection
+    , focusedBorderColor = show Comment
     , workspaces = map show [(1 :: Integer)..9]
     , keys = myKeys
     }
