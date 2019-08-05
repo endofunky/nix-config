@@ -6,6 +6,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Prompt
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders (smartBorders)
@@ -98,8 +99,8 @@ main = do
     , layoutHook = windowNavigation
                  . avoidStruts
                  $ smartBorders
-                 $ mkToggle (NOBORDERS ?? FULL ?? EOT)
-                 $ layoutHook def
+                 $ mkToggle (single FULL)
+                 $ emptyBSP
     , handleEventHook = handleEventHook def
                         <+> fullscreenEventHook
                         <+> docksEventHook
