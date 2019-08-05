@@ -6,11 +6,16 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Prompt
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Layout.WindowNavigation
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Prompt.FuzzyMatch
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 import XMonad.Util.Run(spawnPipe)
+import XMonad.StackSet (focusDown)
 
 data MyColor = Background
              | Current
@@ -63,9 +68,16 @@ myKeys c =
   , ("C-d f", spawn "google-chrome-stable")
   , ("M-C-l", nextWS)
   , ("M-C-h", prevWS)
-  , ("C-d k", confirmPrompt myXPConfig "kill" kill)
+  , ("M-<Tab>", windows focusDown)
+  , ("C-d <Backspace>", confirmPrompt myXPConfig "kill" kill)
+  , ("C-d h", sendMessage $ Go L)
+  , ("C-d j", sendMessage $ Go D)
+  , ("C-d k", sendMessage $ Go U)
+  , ("C-d l", sendMessage $ Go R)
   , ("C-d <Space>", shellPrompt myXPConfig)
-  , ("C-d S-l", spawn "i3lock -e -c 000000")
+  , ("C-d <Return>", sendMessage $ Toggle FULL)
+  , ("C-d C-l", shiftTo Next HiddenWS >> moveTo Next HiddenWS)
+  , ("C-d C-h", shiftTo Prev HiddenWS >> moveTo Prev HiddenWS)
   , ("<XF86Display>", spawn "i3lock -e -c 000000 && systemctl hibernate")
   , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5")
   , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
@@ -83,7 +95,11 @@ main = do
   xmonad $ ewmh $ def
     { terminal = "xterm"
     , manageHook = manageDocks <+> manageHook def
-    , layoutHook = avoidStruts  $ layoutHook def
+    , layoutHook = windowNavigation
+                 . avoidStruts
+                 $ smartBorders
+                 $ mkToggle (NOBORDERS ?? FULL ?? EOT)
+                 $ layoutHook def
     , handleEventHook = handleEventHook def
                         <+> fullscreenEventHook
                         <+> docksEventHook
