@@ -4,7 +4,7 @@ Config {
        , bgColor = "#1d1f21"
        , fgColor = "#bbc2cf"
        , position = TopW L 100
-       , commands = [ Run Date "%a %b %_d %I:%M:%S" "date" 10
+       , commands = [ Run Date "%a %b %-d %T" "date" 10
                     , Run BatteryP       [ "BAT0" ]
                                          [ "--template" , "<acstatus>"
                                          , "--Low"      , "10"
