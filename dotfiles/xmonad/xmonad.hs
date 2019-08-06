@@ -32,7 +32,7 @@ data MyColor = Background
              | Aqua
              | Blue
              | Purple
-               --
+
 instance Show MyColor where
   show Background = "#1d1f21"
   show Current = "#282a2e"
@@ -93,7 +93,8 @@ myKeys c =
   , ("C-d <Return>", sendMessage $ Toggle FULL)
   , ("C-d C-l", shiftTo Next HiddenWS >> moveTo Next HiddenWS)
   , ("C-d C-h", shiftTo Prev HiddenWS >> moveTo Prev HiddenWS)
-  , ("<XF86Display>", spawn "i3lock -e -c 000000 && systemctl hibernate")
+  , ("C-d S-l", spawn locker)
+  , ("<XF86Display>", spawn $ locker ++ " && systemctl hibernate")
   , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5")
   , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
   , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +10000")
@@ -103,6 +104,8 @@ myKeys c =
   , ("<Print>", spawn "scrot -e 'mv $f ~/media/images/'")
   , ("M1-<Print>", spawn "scrot -s -e 'mv $f ~/media/images/'")
   ]
+  where
+    locker = (++) "i3lock -e -c " $ drop 1 $ show Background
 
 main :: IO ()
 main = do
