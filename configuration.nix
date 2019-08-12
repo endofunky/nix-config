@@ -20,6 +20,23 @@
   networking.extraHosts = "127.0.0.1 ${config.networking.hostName}.local";
   networking.usePredictableInterfaceNames = false;
 
+  environment.etc."NetworkManager/system-connections/wired.nmconnection" = {
+    text = ''
+      [connection]
+      id=wired
+      type=ethernet
+      interface-name=eth0
+
+      [ipv4]
+      method=auto
+
+      [ipv6]
+      addr-gen-mode=stable-privacy
+      method=auto
+    '';
+    mode = "0400";
+  };
+
   i18n = {
     consoleKeyMap = "uk";
     defaultLocale = "en_GB.UTF-8";
