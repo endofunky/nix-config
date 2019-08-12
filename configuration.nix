@@ -52,6 +52,11 @@
     rfkill
     vim
     wirelesstools
+
+    # Documentation
+    man-pages       # Linux man pages
+    posix_man_pages # POSIX man pages
+    stdmanpages     # GCC C++ STD manual pages
   ];
 
   services.autorandr.enable = true;
