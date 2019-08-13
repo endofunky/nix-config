@@ -69,6 +69,8 @@
 
   virtualisation.docker.enable = true;
 
+  systemd.extraConfig = "DefaultLimitNOFILE=1048576";
+
   services.udev.extraHwdb = ''
     evdev:atkbd:dmi:*
     KEYBOARD_KEY_3a=leftctrl
