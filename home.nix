@@ -24,6 +24,7 @@ in
   home.packages = with pkgs; [
     aria2
     asdfVM
+    docker-compose
     emacsHEAD
     fish
     fortune
