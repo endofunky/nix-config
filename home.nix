@@ -9,7 +9,7 @@ let
   sicp = import ./pkgs/sicp.nix;
 in
 {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = import ./dotfiles/config.nix;
   news.display = "silent";
 
   imports = [
@@ -50,9 +50,6 @@ in
   ];
 
   home.file = {
-    ".config/pry/pryrc".source = ./dotfiles/pryrc;
-    ".config/user-dirs.dirs".source = ./dotfiles/user-dirs.dirs;
-    ".config/xmobar/xmobarrc".source = ./dotfiles/xmobarrc;
     ".gemrc".source = ./dotfiles/gemrc;
     ".irssi/startup".text = ''
       load ${irssi-fish}/lib/irssi/modules/libfish.so
@@ -104,5 +101,11 @@ in
     configHome = "${home_directory}/.config";
     dataHome   = "${home_directory}/.local/share";
     cacheHome  = "${home_directory}/.cache";
+    configFile = {
+      "nixpkgs/config.nix".source = ./dotfiles/config.nix;
+      "pry/pryrc".source = ./dotfiles/pryrc;
+      "user-dirs.dirs".source = ./dotfiles/user-dirs.dirs;
+      "xmobar/xmobarrc".source = ./dotfiles/xmobarrc;
+    };
   };
 }
