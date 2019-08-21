@@ -1,0 +1,11 @@
+[connection]
+id=wired
+type=ethernet
+interface-name=eth0
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto

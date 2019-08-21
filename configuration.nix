@@ -21,42 +21,12 @@
   networking.usePredictableInterfaceNames = false;
 
   environment.etc."NetworkManager/system-connections/wired.nmconnection" = {
-    text = ''
-      [connection]
-      id=wired
-      type=ethernet
-      interface-name=eth0
-
-      [ipv4]
-      method=auto
-
-      [ipv6]
-      addr-gen-mode=stable-privacy
-      method=auto
-    '';
+    source = ./etc/wired.nmconnection;
     mode = "0400";
   };
 
   environment.etc."oidentd.conf" = {
-    text = ''
-      default {
-          default {
-              deny spoof_all
-              allow spoof
-              allow spoof_privport
-              allow random
-              allow random_numeric
-              allow numeric
-              allow hide
-          }
-      }
-
-      user root {
-          default {
-              force reply "UNKNOWN"
-          }
-      }
-    '';
+    source = ./etc/oidentd.conf;
     mode = "0644";
   };
 
