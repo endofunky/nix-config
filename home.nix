@@ -6,6 +6,7 @@ let
   home_directory = builtins.getEnv "HOME";
   asdfVM = import ./pkgs/asdf.nix;
   emacsHEAD = import ./pkgs/emacs.nix;
+  irssi-fish = import ./pkgs/irssi-fish.nix;
   sicp = import ./pkgs/sicp.nix;
 in
 {
@@ -31,6 +32,8 @@ in
     google-chrome
     hsetroot
     i3lock
+    irssi
+    irssi-fish
     ispell
     mplayer
     pythonPackages.editorconfig
@@ -54,6 +57,9 @@ in
     ".config/user-dirs.dirs".source = ./dotfiles/user-dirs.dirs;
     ".config/xmobar/xmobarrc".source = ./dotfiles/xmobarrc;
     ".gemrc".source = ./dotfiles/gemrc;
+    ".irssi/startup".text = ''
+      load ${irssi-fish}/lib/irssi/modules/libfish.so
+    '';
     ".rspec".source = ./dotfiles/rspec;
     "media/images/Paver.pm".source = ./dotfiles/Paver.pm;
   };
