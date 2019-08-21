@@ -50,6 +50,12 @@
               allow hide
           }
       }
+
+      user root {
+          default {
+              force reply "UNKNOWN"
+          }
+      }
     '';
     mode = "0644";
   };
