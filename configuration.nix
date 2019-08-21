@@ -7,7 +7,7 @@
     ./configuration.local.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = import ./dotfiles/config.nix;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
