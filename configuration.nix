@@ -37,6 +37,23 @@
     mode = "0400";
   };
 
+  environment.etc."oidentd.conf" = {
+    text = ''
+      default {
+          default {
+              deny spoof_all
+              allow spoof
+              allow spoof_privport
+              allow random
+              allow random_numeric
+              allow numeric
+              allow hide
+          }
+      }
+    '';
+    mode = "0644";
+  };
+
   i18n = {
     consoleKeyMap = "uk";
     defaultLocale = "en_GB.UTF-8";
@@ -63,6 +80,7 @@
   services.cron.enable = true;
   services.timesyncd.enable = true;
   services.upower.enable = true;
+  services.oidentd.enable = true;
 
   powerManagement.cpuFreqGovernor = null;
   services.tlp.enable = true;
@@ -120,6 +138,7 @@
       "audio"
       "docker"
       "networkmanager"
+      "oidentd"
       "rfkill"
       "systemd-journal"
       "video"
