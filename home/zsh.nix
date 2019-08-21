@@ -4,7 +4,6 @@ with import <nixpkgs> {};
 
 let
   home_directory = builtins.getEnv "HOME";
-  asdfVM = import ../pkgs/asdf.nix;
 in
 {
   programs.zsh = {
@@ -53,7 +52,6 @@ in
       autoload -U colors
       colors
 
-      source ${asdfVM}/share/asdf/completions/asdf.bash
       source ${pkgs.zsh-git-prompt}/share/zsh-git-prompt/zshrc.sh
 
       PROMPT='%1~%b$(git_super_status) %# '
@@ -83,8 +81,6 @@ in
       if test -f ${home_directory}/.zprofile.local; then
         source ${home_directory}/.zprofile.local
       fi
-
-      source ${asdfVM}/share/asdf/asdf.sh
     '';
 
     logoutExtra = "[[ -o INTERACTIVE && -t 2 ]] && clear >&2";

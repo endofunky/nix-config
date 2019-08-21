@@ -4,7 +4,6 @@ with import <nixpkgs> {};
 
 let
   home_directory = builtins.getEnv "HOME";
-  asdfVM = import ./pkgs/asdf.nix;
   emacsHEAD = import ./pkgs/emacs.nix;
   irssi-fish = import ./pkgs/irssi-fish.nix;
   sicp = import ./pkgs/sicp.nix;
@@ -24,7 +23,6 @@ in
 
   home.packages = with pkgs; [
     aria2
-    asdfVM
     docker-compose
     emacsHEAD
     fish
@@ -52,7 +50,6 @@ in
   ];
 
   home.file = {
-    ".asdfrc".source = ./dotfiles/asdfrc;
     ".config/pry/pryrc".source = ./dotfiles/pryrc;
     ".config/user-dirs.dirs".source = ./dotfiles/user-dirs.dirs;
     ".config/xmobar/xmobarrc".source = ./dotfiles/xmobarrc;
