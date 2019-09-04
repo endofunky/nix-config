@@ -15,7 +15,7 @@ Config {
                                    , "--"
                                    , "-o"   , "<left>% (<timeleft>)"
                                    , "-O"   , "<left>%+ (<timeleft>)"
-                                   , "-i"   , "<fc=#98be65>full</fc>"
+                                   , "-i"   , "<fc=#98be65>100%</fc>"
                                    ] 50
                     , Run DynNetwork [ "-t", "<dev> d: <rx> u: <tx>"
                                      , "-H", "400"
