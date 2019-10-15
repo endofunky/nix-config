@@ -69,6 +69,7 @@ myKeys c =
   [ ("C-d x", spawn $ terminal c)
   , ("C-d e", spawn "emacs")
   , ("C-d f", spawn "google-chrome-stable")
+  , ("C-d s", spawn "spotify")
   , ("M1-C-l", nextWS)
   , ("M1-C-h", prevWS)
   , ("M-<Tab>", windows focusDown)
