@@ -35,6 +35,7 @@ in
     ispell
     kubectl
     mplayer
+    networkmanagerapplet
     pythonPackages.editorconfig
     ripgrep
     screen
