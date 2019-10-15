@@ -24,6 +24,8 @@ in
 
     shellAliases = {
       ls = "ls --color";
+      pgstart = "pg_ctl start -o '-c listen_addresses= -c unix_socket_directories=$PGHOST'";
+      pgstop = "pg_ctl stop -D $PGDATA";
     };
 
     initExtra = ''
