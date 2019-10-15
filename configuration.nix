@@ -56,6 +56,7 @@ in
     acpilight
     curl
     exfat
+    killall
     pamix
     rfkill
     vim
