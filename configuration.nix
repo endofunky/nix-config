@@ -1,5 +1,20 @@
 { config, pkgs, lib, ... }:
 
+let
+  docker-config = pkgs.writeText "daemon.json" (builtins.toJSON {
+    bip = "10.110.0.1/24";
+    default-address-pools = [
+      {
+        base = "10.111.0.0/16";
+        size = 24;
+      }
+      {
+        base = "10.112.0.0/16";
+        size = 24;
+      }
+    ];
+  });
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -61,7 +76,10 @@
   powerManagement.cpuFreqGovernor = null;
   services.tlp.enable = true;
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    extraOptions = "--config-file=${docker-config}";
+  };
 
   systemd.extraConfig = "DefaultLimitNOFILE=1048576";
 
