@@ -61,6 +61,8 @@ in
       if test -f ${home_directory}/.zshrc.local; then
         source ${home_directory}/.zshrc.local
       fi
+
+      [[ -x $(which fortune) ]] && fortune
     '';
 
     profileExtra = ''
