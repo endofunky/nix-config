@@ -33,6 +33,7 @@ in
     irssi
     irssi-fish
     ispell
+    kubectl
     mplayer
     pythonPackages.editorconfig
     ripgrep
