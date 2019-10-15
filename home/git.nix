@@ -161,9 +161,10 @@ with import <nixpkgs> {};
       ".ccls-cache"
 
       # Direnv / nix
-      ".envrc"
       ".direnv/"
+      ".envrc"
       ".mysql"
+      ".nix"
       ".nix-gems"
       "default.nix"
     ];
