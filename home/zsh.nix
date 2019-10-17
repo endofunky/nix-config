@@ -25,6 +25,7 @@ in
     shellAliases = {
       be = "bundle exec";
       kc = "${pkgs.kubectx}/bin/kubectx";
+      kn = "${pkgs.kubectx}/bin/kubens";
       ls = "${pkgs.coreutils}/bin/ls --color";
       pgstart = "pg_ctl start -o '-c listen_addresses= -c unix_socket_directories=$PGHOST'";
       pgstop = "pg_ctl stop -D $PGDATA";
