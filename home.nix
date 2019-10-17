@@ -33,7 +33,6 @@ in
     irssi
     irssi-fish
     ispell
-    kubectl
     mplayer
     networkmanagerapplet
     pythonPackages.editorconfig
@@ -49,6 +48,12 @@ in
     xmobar
     zoom-us
     zsh-git-prompt
+
+    # Kubernetes
+    kubectl
+    kubectx
+    kubernetes-helm
+    stern
   ];
 
   home.file = {
