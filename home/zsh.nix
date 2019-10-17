@@ -24,6 +24,7 @@ in
 
     shellAliases = {
       be = "bundle exec";
+      k = "${pkgs.kubectl}/bin/kubectl";
       kc = "${pkgs.kubectx}/bin/kubectx";
       kn = "${pkgs.kubectx}/bin/kubens";
       ls = "${pkgs.coreutils}/bin/ls --color";
