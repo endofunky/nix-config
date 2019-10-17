@@ -34,7 +34,6 @@ in
     irssi-fish
     ispell
     mplayer
-    networkmanagerapplet
     pythonPackages.editorconfig
     ripgrep
     screen
@@ -42,12 +41,16 @@ in
     shellcheck
     sicp
     spotify
-    traceroute
     unzip
-    whois
     xmobar
     zoom-us
     zsh-git-prompt
+
+    # Networking
+    openconnect
+    networkmanagerapplet
+    traceroute
+    whois
 
     # Kubernetes
     kubectl
