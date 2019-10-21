@@ -105,6 +105,8 @@ in
   programs.home-manager.enable = true;
   programs.info.enable = true;
 
+  services.keybase.enable = true;
+
   xdg = {
     enable = true;
 
