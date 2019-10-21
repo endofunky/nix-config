@@ -24,6 +24,7 @@ in
 
     shellAliases = {
       be = "bundle exec";
+      cdg = "${pkgs.git}/bin/git rev-parse --show-toplevel && cd $(${pkgs.git}/bin/git rev-parse --show-toplevel)";
       k = "${pkgs.kubectl}/bin/kubectl";
       kc = "${pkgs.kubectx}/bin/kubectx";
       kn = "${pkgs.kubectx}/bin/kubens";
