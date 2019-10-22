@@ -78,6 +78,7 @@ in
       export RUBY_HEAP_FREE_MIN=500000
 
       export PATH="${home_directory}/bin:$PATH"
+      export PATH=".git/safe/../../bin:$PATH"
 
       export GOPATH=${home_directory}/projects/go
       export GOBIN=${home_directory}/projects/go/bin
