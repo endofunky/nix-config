@@ -115,9 +115,19 @@ in
   };
 
   sound.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.pulseaudio.enable = true;
   hardware.brightnessctl.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    extraConfig = ''
+    [General]
+    Enable=Source,Sink,Media,Socket
+    '';
+  };
+  hardware.pulseaudio = {
+    enable = true;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+    package = pkgs.pulseaudioFull;
+  };
 
   security.sudo = {
     enable = true;
