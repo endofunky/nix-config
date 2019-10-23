@@ -27,8 +27,10 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.earlyVconsoleSetup = true;
-  boot.kernel.sysctl."vm.max_map_count" = 262144;
-
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "vm.max_map_count" = 262144;
+  };
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   networking.networkmanager.enable = true;
@@ -81,6 +83,7 @@ in
     enable = true;
     extraOptions = "--config-file=${docker-config}";
   };
+  virtualisation.libvirtd.enable = true;
 
   systemd.extraConfig = "DefaultLimitNOFILE=1048576";
 
@@ -119,8 +122,8 @@ in
   hardware.bluetooth = {
     enable = true;
     extraConfig = ''
-    [General]
-    Enable=Source,Sink,Media,Socket
+      [General]
+      Enable=Source,Sink,Media,Socket
     '';
   };
   hardware.pulseaudio = {
@@ -142,6 +145,7 @@ in
     extraGroups = [
       "audio"
       "docker"
+      "libvirtd"
       "networkmanager"
       "oidentd"
       "rfkill"
