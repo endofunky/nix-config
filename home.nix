@@ -57,6 +57,11 @@ in
     kubectx
     kubernetes-helm
     stern
+
+    # Virtualization
+    spice-vdagent
+    virt-viewer
+    virtmanager
   ];
 
   home.file = {
