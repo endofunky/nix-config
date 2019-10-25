@@ -26,7 +26,7 @@ in
       bake = "bundle exec rake";
       be = "bundle exec";
       cdg = "git rev-parse --show-toplevel && cd $(git rev-parse --show-toplevel)";
-      k = "ubectl";
+      k = "kubectl";
       kc = "kubectx";
       kn = "kubens";
       ls = "ls --color";
