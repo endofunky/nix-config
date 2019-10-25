@@ -23,12 +23,13 @@ in
     };
 
     shellAliases = {
+      bake = "bundle exec rake";
       be = "bundle exec";
-      cdg = "${pkgs.git}/bin/git rev-parse --show-toplevel && cd $(${pkgs.git}/bin/git rev-parse --show-toplevel)";
-      k = "${pkgs.kubectl}/bin/kubectl";
-      kc = "${pkgs.kubectx}/bin/kubectx";
-      kn = "${pkgs.kubectx}/bin/kubens";
-      ls = "${pkgs.coreutils}/bin/ls --color";
+      cdg = "git rev-parse --show-toplevel && cd $(git rev-parse --show-toplevel)";
+      k = "ubectl";
+      kc = "kubectx";
+      kn = "kubens";
+      ls = "ls --color";
       pgstart = "pg_ctl start -o '-c listen_addresses= -c unix_socket_directories=$PGHOST'";
       pgstop = "pg_ctl stop -D $PGDATA";
     };
