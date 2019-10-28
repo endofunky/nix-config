@@ -15,6 +15,7 @@ with import <nixpkgs> {};
       ll = "log --stat -C -1";
       st = "status";
       dh = "diff HEAD";
+      dm = "diff master";
       delete-merged-branches = "!git co master && git branch --merged | grep -v '\\\\*' | xargs -n 1 git branch -d";
 
       squash = "!git reset master && git add -A . && git commit";
