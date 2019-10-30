@@ -82,6 +82,7 @@ with import <nixpkgs> {};
 
       rebase = {
         autosquash = true;
+        autostash = true;
       };
 
       log = {
