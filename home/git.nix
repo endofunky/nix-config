@@ -69,6 +69,7 @@ with import <nixpkgs> {};
       };
 
       pull = {
+        autostash = true;
         rebase = true;
       };
 
