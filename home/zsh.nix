@@ -69,6 +69,23 @@ in
         source ${home_directory}/.zshrc.local
       fi
 
+      function kexec() {
+        pod="$(k get pods | grep "$1" | head -n 1 | awk '{ print $1 }')"
+
+        if [ -z "$pod" ]; then
+          echo "No pod matching pattern $1 found" 1>&2;
+          return "-1"
+        fi
+
+        echo "Using $pod on $(kubectl config current-context)" 1>&2;
+
+        if [ -z "$2" ]; then
+          kubectl exec -it $pod bash
+        else
+          kubectl exec -it $pod $2
+        fi
+      }
+
       [[ -x $(which fortune) ]] && fortune
     '';
 
