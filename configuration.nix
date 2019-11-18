@@ -100,6 +100,7 @@ in
     desktopManager.default = "none";
     displayManager.slim.enable = true;
     displayManager.slim.defaultUser = "ts";
+    enableCtrlAltBackspace = true;
   };
 
   system.activationScripts.binbash = {
