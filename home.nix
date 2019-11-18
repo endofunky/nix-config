@@ -71,6 +71,7 @@ in
     '';
     ".rspec".source = ./dotfiles/rspec;
     "media/images/Paver.pm".source = ./dotfiles/Paver.pm;
+    "bin/sp".source = ./dotfiles/bin/sp;
   };
 
   home.keyboard = {
