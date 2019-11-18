@@ -14,6 +14,7 @@ in
       extraPackages = hpkgs: [
         hpkgs.xmonad-contrib
         hpkgs.xmonad-extras
+        hpkgs.xmonad-spotify
       ];
       enableContribAndExtras = true;
       config = ../dotfiles/xmonad/xmonad.hs;

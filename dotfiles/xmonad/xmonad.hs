@@ -16,6 +16,7 @@ import XMonad.Prompt.FuzzyMatch
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.Spotify
 import XMonad.StackSet (focusDown)
 
 import qualified XMonad.Layout.BinarySpacePartition as BSP
@@ -82,9 +83,9 @@ myKeys c =
   , ("C-d S-j", windowSwap D False)
   , ("C-d S-k", windowSwap U False)
   , ("C-d S-l", windowSwap R False)
-  , ("C-S-l", spawn "sp next")
-  , ("C-S-h", spawn "sp prev")
-  , ("C-S-p", spawn "sp play")
+  , ("C-S-l", audioNext)
+  , ("C-S-h", audioPrev)
+  , ("C-S-p", audioPlayPause)
   , ("M4-h", sendMessage $ BSP.ExpandTowards L)
   , ("M4-j", sendMessage $ BSP.ExpandTowards D)
   , ("M4-k", sendMessage $ BSP.ExpandTowards U)

@@ -9,6 +9,7 @@ haskell.lib.buildStackProject {
     alsaLib
     pkg-config
     x11
+    xmonad-spotify
     xorg.libX11
     xorg.libXScrnSaver
     xorg.libXext
