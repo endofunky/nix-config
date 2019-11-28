@@ -4,6 +4,9 @@ compiler: ghc-8.6.4
 packages:
   - .
 
+extra-deps:
+  - xmonad-spotify-0.1.1.0@sha256:68e7d126c7c3b69c20ab9f54b385be66f42338af9909822c13574caf6549a4e9
+
 nix:
   enable: true
   pure: false

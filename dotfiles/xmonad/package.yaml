@@ -22,4 +22,4 @@ executable:
     - xmonad >= 0.15
     - xmonad-contrib >= 0.15
     - xmonad-extras >= 0.15
-    - xmonad-spotify >= 0.1.2.2
+    - xmonad-spotify >= 0.1.1.0
