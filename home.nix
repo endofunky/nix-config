@@ -34,6 +34,7 @@ in
     irssi-fish
     ispell
     mplayer
+    nix-prefetch-git
     pythonPackages.editorconfig
     ripgrep
     screen
