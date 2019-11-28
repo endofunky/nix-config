@@ -4,6 +4,7 @@ with import <nixpkgs> {};
 
 let
   home_directory = builtins.getEnv "HOME";
+  background = ./../dotfiles/Paver.pm;
 in
 {
   xsession = {
@@ -57,7 +58,7 @@ in
         xinput --set-prop "Synaptics TM3289-002" "libinput Disable While Typing Enabled" 1
       fi
 
-      test -r ${home_directory}/media/images/Paver.pm && hsetroot -tile ${home_directory}/media/images/Paver.pm
+      hsetroot -tile ${background}
 
       xset -b
 

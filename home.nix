@@ -70,7 +70,6 @@ in
       load ${irssi-fish}/lib/irssi/modules/libfish.so
     '';
     ".rspec".source = ./dotfiles/rspec;
-    "media/images/Paver.pm".source = ./dotfiles/Paver.pm;
   };
 
   home.keyboard = {
