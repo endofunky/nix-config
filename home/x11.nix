@@ -34,14 +34,14 @@ in
       }
 
       if xinput_check "Logitech MX Master 2S"; then
-        xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Accel Speed" 0.4
-        xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Natural Scrolling Enabled" 0
+        xinput --set-prop "Logitech MX Master 2S" "libinput Accel Speed" 0.4
+        xinput --set-prop "Logitech MX Master 2S" "libinput Natural Scrolling Enabled" 0
       fi
 
       if xinput_check "MX Master 2S Mouse"; then
-        xinput --set-prop "pointer:MX Master 2S Mouse" "libinput Accel Speed" 0.4
-        xinput --set-prop "pointer:MX Master 2S Mouse" "libinput Natural Scrolling Enabled" 0
-        xinput --set-prop "pointer:MX Master 2S Mouse" "libinput Accel Profile Enabled" 0, 1
+        xinput --set-prop "MX Master 2S Mouse" "libinput Accel Speed" 0.4
+        xinput --set-prop "MX Master 2S Mouse" "libinput Natural Scrolling Enabled" 0
+        xinput --set-prop "MX Master 2S Mouse" "libinput Accel Profile Enabled" 0, 1
       fi
 
       if xinput_check "SynPS/2 Synaptics TouchPad"; then
