@@ -86,7 +86,7 @@ in
         fi
       }
 
-      [[ -x $(which fortune) ]] && fortune
+      [[ -x $(which fortune) ]] && fortune && printf "\n"
     '';
 
     profileExtra = ''
