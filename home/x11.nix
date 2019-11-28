@@ -32,10 +32,6 @@ in
           fi
       }
 
-      xset -b
-
-      xset r rate 250 50
-
       if xinput_check "Logitech MX Master 2S"; then
         xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Accel Speed" 0.4
         xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Natural Scrolling Enabled" 0
@@ -62,6 +58,10 @@ in
       fi
 
       test -r ${home_directory}/media/images/Paver.pm && hsetroot -tile ${home_directory}/media/images/Paver.pm
+
+      xset -b
+
+      xset r rate 250 50
 
       setxkbmap -option caps:ctrl_modifier
 
