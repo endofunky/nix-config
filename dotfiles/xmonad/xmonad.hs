@@ -76,7 +76,7 @@ myKeys c =
   , ("M1-C-l", nextWS)
   , ("M1-C-h", prevWS)
   , ("M-<Tab>", windows focusDown)
-  , ("C-d <Backspace>", confirmPrompt myXPConfig "kill" kill)
+  , ("C-d <Backspace>", confirm "kill" kill)
   , ("C-d h", windowGo L False)
   , ("C-d j", windowGo D False)
   , ("C-d k", windowGo U False)
@@ -102,7 +102,7 @@ myKeys c =
   , ("C-d C-l", shiftTo Next HiddenWS >> moveTo Next HiddenWS)
   , ("C-d C-h", shiftTo Prev HiddenWS >> moveTo Prev HiddenWS)
   , ("C-d 0", spawn locker)
-  , ("C-d S-0", spawn $ locker ++ " && systemctl hibernate")
+  , ("C-d S-0", confirm "hiberante" $ spawn $ locker ++ " && systemctl hibernate")
   , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5")
   , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
   , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +10000")
@@ -113,6 +113,7 @@ myKeys c =
   , ("M1-<Print>", spawn "scrot -s -e 'mv $f ~/media/images/'")
   ]
   where
+    confirm = confirmPrompt myXPConfig
     locker = (++) "i3lock -e -c " $ drop 1 $ show Background
 
 main :: IO ()
