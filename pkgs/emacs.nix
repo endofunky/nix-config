@@ -25,7 +25,7 @@ stdenv.lib.overrideDerivation (pkgs.emacs.override {
   src = fetchFromGitHub {
     owner = "emacs-mirror";
     repo = "emacs";
-    rev = "435eb82e7b7e8926a3675bac74713e7c6081f7db";
-    sha256 = "13x9v67hb0zqq9y7mpcwrbc70jak9cxliwjqwmkjgjafasja77nb";
+    rev = "b006095bc9eb1f963372cf862aa040e9a9d30331";
+    sha256 = "15921rizf6ssfjjacm7jw4gj5kw51b6fd25m94m6g6pfvq5dhz60";
   };
 })
