@@ -14,6 +14,7 @@ import XMonad.Layout.WindowNavigation
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Prompt.FuzzyMatch
 import XMonad.Prompt.Shell
+import XMonad.Prompt.Window
 import XMonad.Util.EZConfig
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.Spotify
@@ -97,6 +98,7 @@ myKeys c =
   , ("M4-S-l", sendMessage $ BSP.ShrinkFrom L)
   , ("C-d <Space>", shellPrompt myXPConfig)
   , ("C-d <Return>", sendMessage $ Toggle FULL)
+  , ("C-d <Tab>", windowPrompt myXPConfig Goto allWindows)
   , ("C-d C-l", shiftTo Next HiddenWS >> moveTo Next HiddenWS)
   , ("C-d C-h", shiftTo Prev HiddenWS >> moveTo Prev HiddenWS)
   , ("C-d 0", spawn locker)
