@@ -20,6 +20,8 @@ in
     ./hardware-configuration.nix
   ] ++ lib.optionals (builtins.pathExists ./configuration.local.nix) [
     ./configuration.local.nix
+  ] ++ lib.optionals (builtins.pathExists ./private/configuration.nix) [
+    ./private/configuration.nix
   ];
 
   nixpkgs.config = import ./dotfiles/config.nix;

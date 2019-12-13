@@ -17,6 +17,8 @@ in
     ./home/ssh.nix
     ./home/zsh.nix
     ./home/x11.nix
+  ] ++ lib.optionals (builtins.pathExists ./private/home.nix) [
+    ./private/home.nix
   ] ++ lib.optionals (builtins.pathExists ./home.local.nix) [
     ./home.local.nix
   ];
