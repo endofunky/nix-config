@@ -63,6 +63,7 @@ in
     killall
     pamix
     rfkill
+    telnet
     vim
     wirelesstools
 
