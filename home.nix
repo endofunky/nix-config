@@ -54,6 +54,9 @@ in
     zoom-us
     zsh-git-prompt
 
+
+    godef
+
     # Networking
     openconnect
     networkmanagerapplet
