@@ -48,6 +48,7 @@ in
     shellcheck
     sicp
     spotify
+    subversion
     unzip
     xmobar
     zoom-us
