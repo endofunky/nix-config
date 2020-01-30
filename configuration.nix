@@ -66,6 +66,7 @@ in
     telnet
     vim
     wirelesstools
+    xorg.xhost
 
     # Documentation
     man-pages       # Linux man pages
