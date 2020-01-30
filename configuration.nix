@@ -112,6 +112,11 @@ in
     deps = [];
   };
 
+  system.activationScripts.ld-linux = {
+    text = "mkdir -p /lib64 && ln -sf ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2";
+    deps = [];
+  };
+
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
