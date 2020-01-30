@@ -37,6 +37,7 @@ in
     irssi-fish
     ispell
     mplayer
+    mosh
     nix-prefetch-git
     pythonPackages.editorconfig
     qodem
