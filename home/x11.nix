@@ -60,7 +60,7 @@ in
 
       hsetroot -tile ${background}
 
-      xset -b
+      xset -b b 20
 
       xset r rate 250 50
 
