@@ -39,7 +39,8 @@ in
     mplayer
     mosh
     nix-prefetch-git
-    pythonPackages.editorconfig
+    openvpn
+    python3Packages.editorconfig
     qodem
     ripgrep
     screen
