@@ -7,6 +7,7 @@ let
   emacsHEAD = import ./pkgs/emacs.nix;
   irssi-fish = import ./pkgs/irssi-fish.nix;
   sicp = import ./pkgs/sicp.nix;
+  qodem = import ./pkgs/qodem.nix;
 in
 {
   nixpkgs.config = import ./dotfiles/config.nix;
@@ -38,6 +39,7 @@ in
     mplayer
     nix-prefetch-git
     pythonPackages.editorconfig
+    qodem
     ripgrep
     screen
     scrot
