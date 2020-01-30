@@ -22,41 +22,25 @@ in
     };
 
     profileExtra = ''
-      xinput_check() {
-          local XINPUT_NAME
-          XINPUT_NAME="$1"
-          if [ ! -z "$XINPUT_NAME" ]; then
-              xinput --list | grep -q "$XINPUT_NAME"
-              return $?
-          else
-              return 1
-          fi
-      }
+      xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Accel Speed" 0.4
+      xinput --set-prop "pointer:Logitech MX Master 2S" "libinput Natural Scrolling Enabled" 0
 
-      if xinput_check "Logitech MX Master 2S"; then
-        xinput --set-prop "Logitech MX Master 2S" "libinput Accel Speed" 0.4
-        xinput --set-prop "Logitech MX Master 2S" "libinput Natural Scrolling Enabled" 0
-      fi
+      xinput --set-prop "pointer:Corsair Corsair Gaming M65 Pro RGB Mouse" "libinput Accel Speed" 0.4
+      xinput --set-prop "pointer:Corsair Corsair Gaming M65 Pro RGB Mouse" "libinput Natural Scrolling Enabled" 0
 
-      if xinput_check "MX Master 2S Mouse"; then
-        xinput --set-prop "MX Master 2S Mouse" "libinput Accel Speed" 0.4
-        xinput --set-prop "MX Master 2S Mouse" "libinput Natural Scrolling Enabled" 0
-        xinput --set-prop "MX Master 2S Mouse" "libinput Accel Profile Enabled" 0, 1
-      fi
+      xinput --set-prop "pointer:MX Master 2S Mouse" "libinput Accel Speed" 0.4
+      xinput --set-prop "pointer:MX Master 2S Mouse" "libinput Natural Scrolling Enabled" 0
+      xinput --set-prop "pointer:MX Master 2S Mouse" "libinput Accel Profile Enabled" 0, 1
 
-      if xinput_check "SynPS/2 Synaptics TouchPad"; then
-        xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.7
-        xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-        xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
-        xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Disable While Typing Enabled" 1
-      fi
+      xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.7
+      xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+      xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+      xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Disable While Typing Enabled" 1
 
-      if xinput_check "Synaptics TM3289-002"; then
-        xinput --set-prop "Synaptics TM3289-002" "libinput Accel Speed" 0.7
-        xinput --set-prop "Synaptics TM3289-002" "libinput Tapping Enabled" 1
-        xinput --set-prop "Synaptics TM3289-002" "libinput Natural Scrolling Enabled" 1
-        xinput --set-prop "Synaptics TM3289-002" "libinput Disable While Typing Enabled" 1
-      fi
+      xinput --set-prop "Synaptics TM3289-002" "libinput Accel Speed" 0.7
+      xinput --set-prop "Synaptics TM3289-002" "libinput Tapping Enabled" 1
+      xinput --set-prop "Synaptics TM3289-002" "libinput Natural Scrolling Enabled" 1
+      xinput --set-prop "Synaptics TM3289-002" "libinput Disable While Typing Enabled" 1
 
       hsetroot -tile ${background}
 
