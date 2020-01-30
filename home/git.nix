@@ -97,6 +97,10 @@ with import <nixpkgs> {};
       diff = {
         algorithm = "patience";
       };
+
+      http = {
+        sslVerify = false;
+      };
     };
 
     ignores = [
@@ -174,4 +178,3 @@ with import <nixpkgs> {};
   };
 
 }
-
