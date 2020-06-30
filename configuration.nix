@@ -31,11 +31,13 @@ in
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.earlyVconsoleSetup = true;
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
     "vm.max_map_count" = 262144;
   };
+  boot.kernelModules = [ "snd_pcsp" "pcspkr" ];
+  console.earlySetup = true;
+  console.keyMap = "uk";
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   networking.networkmanager.enable = true;
@@ -53,7 +55,6 @@ in
   };
 
   i18n = {
-    consoleKeyMap = "uk";
     defaultLocale = "en_GB.UTF-8";
   };
 
@@ -69,6 +70,7 @@ in
     telnet
     vim
     wirelesstools
+    xorg.xbacklight
     xorg.xhost
 
     # Documentation
@@ -104,9 +106,7 @@ in
     layout = "gb";
     libinput.enable = true;
     videoDrivers = [ "intel" ];
-    desktopManager.default = "none";
-    displayManager.slim.enable = true;
-    displayManager.slim.defaultUser = "ts";
+    displayManager.defaultSession = "xterm";
     enableCtrlAltBackspace = true;
   };
 
