@@ -49,13 +49,18 @@ in
     sicp
     spotify
     subversion
-    unzip
     xmobar
     zoom-us
     zsh-git-prompt
 
 
     godef
+
+    # Archivers
+    lhasa
+    p7zip
+    unrar
+    unzip
 
     # Networking
     openconnect
