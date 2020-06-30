@@ -37,6 +37,11 @@ in
       xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
       xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Disable While Typing Enabled" 1
 
+      xinput --set-prop "SYNA8004:00 06CB:CD8B Touchpad" "libinput Accel Speed" 0.7
+      xinput --set-prop "SYNA8004:00 06CB:CD8B Touchpad" "libinput Tapping Enabled" 1
+      xinput --set-prop "SYNA8004:00 06CB:CD8B Touchpad" "libinput Natural Scrolling Enabled" 1
+      xinput --set-prop "SYNA8004:00 06CB:CD8B Touchpad" "libinput Disable While Typing Enabled" 1
+
       xinput --set-prop "Synaptics TM3289-002" "libinput Accel Speed" 0.7
       xinput --set-prop "Synaptics TM3289-002" "libinput Tapping Enabled" 1
       xinput --set-prop "Synaptics TM3289-002" "libinput Natural Scrolling Enabled" 1
@@ -75,6 +80,21 @@ in
           eDP1 = {
             enable = false;
             primary = false;
+          };
+        };
+      };
+      "laptop-mov" = {
+        fingerprint = {
+          eDP1 = "00ffffffffffff0006af3d5700000000001c0104a51f1178022285a5544d9a270e505400000001010101010101010101010101010101b43780a070383e401010350035ae100000180000000f0000000000000000000000000020000000fe0041554f0a202020202020202020000000fe004231343048414e30352e37200a0070";
+        };
+        config = {
+          eDP1 = {
+            enable = true;
+            primary = true;
+            dpi = 84;
+            mode = "1920x1080";
+            position = "0x0";
+            rate = "60.00";
           };
         };
       };
