@@ -26,7 +26,10 @@ in
 
   nixpkgs.config = import ./dotfiles/config.nix;
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.earlyVconsoleSetup = true;
   boot.kernel.sysctl = {
