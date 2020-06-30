@@ -84,6 +84,9 @@ in
   services.timesyncd.enable = true;
   services.upower.enable = true;
   services.oidentd.enable = true;
+  services.logind.extraConfig = ''
+    HandleLidSwitchExternalPower=ignore
+  '';
 
   powerManagement.cpuFreqGovernor = null;
   services.tlp.enable = true;
