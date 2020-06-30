@@ -127,11 +127,11 @@ in
       corefonts
       dejavu_fonts
       google-fonts
+      unscii
     ];
   };
 
   sound.enable = true;
-  hardware.brightnessctl.enable = true;
   hardware.bluetooth = {
     enable = true;
     extraConfig = ''

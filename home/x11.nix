@@ -139,8 +139,8 @@ in
 
     XTerm*dynamicColors: true
     XTerm*eightBitInput: false
-    xterm*faceName: DejaVu Sans Mono Book
-    xterm*faceSize: 11
+    xterm*faceName: unscii:style=16
+    xterm*faceSize: 13
     XTerm*jumpScroll: true
     XTerm*loginShell: true
     XTerm*multiScroll: true
